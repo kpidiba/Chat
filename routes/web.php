@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/man',function(){
+    dd('hello world');
+});
+
+Route::get('/page',function(){
+    return view('page-login');
+});
