@@ -10,7 +10,7 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #5372F0;
+    background: #5573ec;
 }
 
 .wrapper{
@@ -35,23 +35,6 @@ form .field {
     margin-bottom:20px;
 }
 
-form .field.shake{
-    animation:shake 0.3s e ase-in-out infinite ;
-}
-
-
-@keyframes shake {
-    
-    0%,100%{
-        margin-left: 0;
-    }
-    20%,80%{
-        margin-left:-12px;
-    }
-    40%,60%{
-        margin-left: 12px;
-    }
-}
 
 form .field .input-area{
     position: relative;
@@ -87,24 +70,14 @@ form .field .icon{
     color:#bfbfbf;
 }
 
-form .field .error-icon{
-    right:15px;
-    color:#dc3545;
+.input-center{
+    text-align: center;
 }
 
-form .field .error-txt{
-    margin-top: 5px;
-    color:#dc3545;
-    text-align: left;
-}
-
-form .field .error{
-    display:none;
-}
 
 form .pass-link{
-     text-align: left;
-     margin-top: -10px;
+    text-align: left;
+    margin-top: -10px;
 }
 
 .wrapper a{
