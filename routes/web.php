@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\UserAuth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -24,12 +25,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/man',function(){
     dd('hello world');
-});
+})->middleware(UserAuth::class);;
 
-Route::get('/',[UserController::class,'login'])->name('user.login');
-
+// Enregistrement de l' utilisateur
 Route::get('/registers',[UserController::class,'register'])->name('user.register');
+Route::post('/registers',[UserController::class,'store'])->name('user.store');
 
-Route::get('/index',[UserController::class,'index'])->name('user.index');
+// Authentification
+Route::get('/',[UserController::class,'login'])->name('user.login');
+Route::post('/',[UserController::class,'connect'])->name('user.connect');
+
+Route::get('/home',[UserController::class,'home'])->name('user.home');
+
 
 

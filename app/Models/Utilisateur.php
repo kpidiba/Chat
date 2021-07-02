@@ -10,4 +10,8 @@ class Utilisateur extends Model
     public $timestamps = true;
     protected $table = ['utilisateur'];
     protected $fillable = ['nom','prenom','password','email','dnais'];
+    
+    protected $hidden = [
+        'password',
+    ];
 }

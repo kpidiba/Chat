@@ -11,7 +11,7 @@
 
 @section('content')
 
-  {{-- <button type="button" class="btn btn-primary btn-alarm">Primary</button>
+{{-- <button type="button" class="btn btn-primary btn-alarm">Primary</button>
 <button type="button" class="btn btn-secondary">Secondary</button>
 <button type="button" class="btn btn-success">Success</button>
 <button type="button" class="btn btn-danger">Danger</button>
@@ -24,8 +24,14 @@
 <i class="fa fa-home"></i>   --}}
     <div class="wrapper">
         <header>Login Form</header>
-        <form method="post" action="{{ route('login') }}">
+        <form method="post" action="{{ route('user.connect') }}">
             @csrf
+            {{-- ERROR CHAMPS VIDES  --}}
+            @if ( session()->has('failed') )                    
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Error!</strong> {{ session()->get('failed') }}
+                </div>
+            @endif
             <div class="field email">
                 <div class="input-area">
                     <input class="input-center" type="text" name="email" placeholder="email" autofocus required>

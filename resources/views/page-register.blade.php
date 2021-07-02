@@ -10,34 +10,41 @@
 
 @section('content')
     <div class="wrapper">
-        <section class="form signup" action="{{ route('register') }}" >
+        <section class="form signup" >
             <header>Register Form</header>
-            <form method="POST" action="{{route('register') }}">
+            <form method="POST" action="{{route('user.store')}}">
+                @csrf
+                {{-- ERROR CHAMPS VIDES  --}}
+                @if ( session()->has('failed') )                    
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Error!</strong> {{ session()->get('failed') }}
+                    </div>
+                @endif
                 <div class="name-details">
                     <div class="field">
                         <label>Nom</label>
-                        <input class="input" type="text" name="nom" placeholder="NOM" autofocus required>
+                        <input class="input" type="text" name="nom" placeholder="NOM" autofocus >
                     </div>
                     <div class="field">
                         <label>Prenom</label>
-                        <input class="input" type="text" name="prenom" placeholder="PRENOM" required>
+                        <input class="input" type="text" name="prenom" placeholder="PRENOM">
                     </div>
                 </div>
                 <div class="field">
                     <label>date de naissance</label>
-                    <input class="input" type="date" name="date"  required>
+                    <input class="input" type="date" name="date" >
                 </div>
                 <div class="field">
                     <label>Mot de passe</label>
-                    <input class="input" type="text" name="pass" placeholder="mot de passe" required>
+                    <input class="input" type="password" name="password" placeholder="mot de passe">
                 </div>
                 <div class="field">
                     <label>email</label>
-                    <input class="input" type="email" name="email" placeholder="email" required>
+                    <input class="input" type="email" name="email" placeholder="email">
                 </div>
                 <div class="field">
                     <label>Select image</label>
-                    <input class="input-file" type="file" name="file" required>
+                    <input class="input-file" type="file" name="file" >
                 </div>
                 <div class="field">
                     <input class="input button" type="submit" value="Commencez le chat">
