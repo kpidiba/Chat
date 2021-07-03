@@ -16,6 +16,9 @@ class UserController extends Controller
         return view('page-register');
     }
 
+    public function file(){
+        return view('file');
+    }
     public function store(Request $request){
         
         //recuperation des donnees des differents champs
@@ -48,6 +51,11 @@ class UserController extends Controller
 
         //Entrez des donnees de l'utilisateur
         $pass = Crypt::encrypt($data['password']);
+        if( empty($data['file']) ){
+            $data['file']="user.png";
+            dd($data['file']);
+        }
+
         try{
             
             DB::table('utilisateurs')->insert([
@@ -60,7 +68,8 @@ class UserController extends Controller
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
             ]);
-            return redirect()->route('user.login')->with('status',"Insert successfully");
+            $request->session()->put('email',$data['email']);
+            return redirect()->route('user.home');
         }
         catch(Exception $e){
             return redirect()->route('user.register')->with('failed',"operation failed");
@@ -73,7 +82,7 @@ class UserController extends Controller
             'email' => 'required',
             'password' => 'required',
         ];
-
+        
         $validator = Validator::make($request->all(),$rules);
 
         if ($validator->fails()) {
@@ -81,37 +90,35 @@ class UserController extends Controller
 			->withInput()
 			->with('failed',"Remplissez les champs");
 		}
-        
-        // Verification de l'existence de l 'utilisateur
-            $data = $request->input();
-            $users = DB::table('utilisateurs')
-            ->where('email', $data['email'])
-            ->get();
 
-        // Verification du mot de passe
-            if ( count($users) != 0 ){
-                $a =  Crypt::decrypt($users[0]->password);
-            }else{
-                return redirect()->route('user.login')
-                ->withInput()
-                ->with('failed',"ce compte n'existe pas");
-            }
+        // Verification de l'existence de l 'utilisateur
+        $data = $request->input();
+        $users = DB::table('utilisateurs')
+        ->where('email', $data['email'])
+        ->get();
+
+    // Verification du mot de passe
+        if ( count($users) != 0 ){
+            $a =  Crypt::decrypt($users[0]->password);
+        }else{
+            return redirect()->route('user.login')
+            ->withInput()
+            ->with('failed',"ce compte n'existe pas");
+        }
+        
+        //verifier si le mot de passe correspond
+        if($a != $data['password']){
+            return redirect()->route('user.login')
+            ->withInput()
+            ->with('failed',"mot de passe Incorrect");
+        }
+        
+        $request->session()->put('email',$data['email']);
+        return redirect()->route('user.home');
             
-            if($a != $data['password']){
-                return redirect()->route('admin.login')
-                ->withInput()
-                ->with('failed',"mot de passe Incorrect");
-            }else{
-                
-                //utilisation de la session
-                $request->session()->put('email',$data['email']);
-                $request->session()->put('password',$data['password']);
-                return redirect()->route('user.home');
-            }
     }
 
     public function home(){
-        dd("baby");
-        dd ('home');
+        return view('homes');
     }
 }

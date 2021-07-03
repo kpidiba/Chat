@@ -25,17 +25,19 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/man',function(){
     dd('hello world');
-})->middleware(UserAuth::class);;
+})->middleware(UserAuth::class);
 
 // Enregistrement de l' utilisateur
 Route::get('/registers',[UserController::class,'register'])->name('user.register');
 Route::post('/registers',[UserController::class,'store'])->name('user.store');
 
 // Authentification
-Route::get('/',[UserController::class,'login'])->name('user.login');
+Route::get('/',[UserController::class,'login'])->name('user.login')->middleware(UserAuth::class);
 Route::post('/',[UserController::class,'connect'])->name('user.connect');
 
-Route::get('/home',[UserController::class,'home'])->name('user.home');
+//page principale
+ Route::get('/home',[UserController::class,'home'])->name('user.home')->middleware(UserAuth::class);
+ Route::get('/file',[UserController::class,'file'])->name('user.file');
 
 
 

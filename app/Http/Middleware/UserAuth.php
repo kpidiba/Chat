@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use Illuminate\Support\Facades\Validator;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -16,10 +16,7 @@ class UserAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        
-        if( session()->has('email') ){
-            return redirect()->route('user.home');
-        }else{
+        if( !session()->has('email') ){
             return redirect()->route('user.login')
 			->withInput()
 			->with('failed',"Veuillez Vous connecter");
