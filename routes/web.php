@@ -32,7 +32,7 @@ Route::get('/registers',[UserController::class,'register'])->name('user.register
 Route::post('/registers',[UserController::class,'store'])->name('user.store');
 
 // Authentification
-Route::get('/',[UserController::class,'login'])->name('user.login')->middleware(UserAuth::class);
+Route::get('/',[UserController::class,'login'])->name('user.login');
 Route::post('/',[UserController::class,'connect'])->name('user.connect');
 
 //page principale

@@ -30,6 +30,17 @@ html,body{
     overflow:hidden;
 }
 
+.wrapper.active{
+    border:none;
+}
+
+.wrapper.active:hover #cancel-btn{
+    display:block;
+}
+.wrapper #cancel-btn:hover{
+    color: blue;
+}
+
 .wrapper .image{
     position:absolute;
     height:100%;
@@ -74,8 +85,14 @@ html,body{
     color:#fff;
     padding:8px 0;
     font-size:18px;
+    display:none;
     background:linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
 }
+
+.wrapper.active:hover .file-name{
+    display: block;
+}
+
 
 .container #custom-btn{
     margin-top:10px;
