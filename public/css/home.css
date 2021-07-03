@@ -1,110 +1,73 @@
-/* *{
-    margin:0;
-    padding:0;
+
+*{
+    margin:0px;
+    padding:0px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-} */
+}
 
 body{
-    background: #f3f6fd;
-    font-family: Roboto;
+    background:#644bff;
+    padding: 0 20px;
 }
 
-#mca_app{
-    padding-left: 50px;
-    padding-top: 20px;
-    overflow-x: hidden;
+/* .wrapper{
+    max-width: 450px;
+    margin: 150px auto;
+} */
+
+.wrapper .search-input{
+    background: #fff;
+    width:100%;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
 }
 
-#mca_app > section{
-    padding-top: 20px;
-    padding-bottom: 0;
-}
-
-#mca_side_bar{
-    position: fixed;
-    height: 100%;
-    width: 90px;
-    background: #669cfe;
-    left: 0;
-    top: 0;
-    text-align: center;
-}
-
-#mca_side_bar .chat_profile{
-    height: 15%;
-    padding-top: 10px;
-    padding-bottom: 100px;
-}
-
-.chat_profile img{
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background: #f3f6fd;
-    padding: 3px;
-    margin-bottom: 5px;
-
-}
-
-
-.chat_profile > span{
-    font-size: 14px;
-    font-weight: 400;
-    color: #eee;
-}
-
-#mca_side_bar .chat_menu{
-    height:75%;
-}
-
-.chat_menu ul{
-    position:relative;
-    padding:0;
-}
-
-.chat_menu ul li{
-    position: relative;
-    list-style: none;
-    font-size: 17px;
-    color: rgba(243,246,253,0.6);
-    padding:10px;
-    margin-bottom:15px;
-    width: 50px;
-    height: 50px;
-}
-
-.chat_menu ul li.active{
-    background-color: rgba(0,0,0,0.13);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 58px;
+.search-input input{
+    height: 55px;
+    width:100%;
+    outline:none;
     border:none;
-    outline: none;
-    border-radius: 50%;
+    border-radius: 5px;
+    padding: 0 60px 0 20px;
+    font-size: 18px; 
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+
 }
 
-.icon-button__badge{
-    position: absolute;
-    top:-10px;
-    right:-10px;
-    width: 30px;
-    height:  30px;
-    background: red;
-    color: #fff;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    border-radius:50%;
+.search-input .icon{
+    heiht:55px;
+    width:55px;
+    line-height: 55px;
+    position:absolute;
+    top:0;
+    right:0;
+    text-align:center;
+    font-size:20px;
+    color:#644bff;
+    cursor:pointer;
 }
 
+.search-input .autocom-box{
+    padding: 10px 8px;
+    max-height:  280px;
+    overflow-y: auto;
+}
 
+.autocom-box li{
+    list-style:none;
+    padding:8px 12px;
+    width: 100%;
+    cursor: default;
+    border:3px;
+}
 
-#mca_side_bar .chat_bar{
-    height: 10%;
-    padding-top: 10px;
-    width: 50px;
-    height: 50px;
-    font-size: 17px;
+.autocom-box li:hover{
+    background: #efefef
+}
+
+.bod{
+    margin-left:10%;
+    margin-right: 4%;
+    padding:1px 16px;
+    height:1000px;
 }
