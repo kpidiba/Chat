@@ -33,10 +33,12 @@ body{
 #mca_side_bar .chat_profile{
     height: 15%;
     padding-top: 10px;
+    padding-bottom: 100px;
 }
 
 .chat_profile img{
     height: 50px;
+    width: 50px;
     border-radius: 50%;
     background: #f3f6fd;
     padding: 3px;
@@ -67,29 +69,42 @@ body{
     color: rgba(243,246,253,0.6);
     padding:10px;
     margin-bottom:15px;
+    width: 50px;
+    height: 50px;
 }
 
 .chat_menu ul li.active{
     background-color: rgba(0,0,0,0.13);
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 58px;
+    border:none;
+    outline: none;
+    border-radius: 50%;
 }
 
- .chat_menu ul li.active:before{
-    position:absolute;
-    display: block;
-    content: '';
-    height: 8px;
-    width: 8px;
-    background-color: #fe6491;
-    border:none;
-    border-radius: 50%;
-    right:0;
-    bottom: 3px;
+.icon-button__badge{
+    position: absolute;
+    top:-10px;
+    right:-10px;
+    width: 30px;
+    height:  30px;
+    background: red;
+    color: #fff;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:50%;
 }
+
+
 
 #mca_side_bar .chat_bar{
     height: 10%;
     padding-top: 10px;
+    width: 50px;
+    height: 50px;
     font-size: 17px;
 }
