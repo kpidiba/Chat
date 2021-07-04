@@ -62,7 +62,6 @@ body{
     width: 100%;
     cursor: default;
     border-radius:3px;
-
     display:none
 }
 
@@ -77,12 +76,10 @@ body{
 }
 
 .friends{
-    padding-right:9px;
     background: white;
     width: 700px;
     margin:0 auto;
     border-radius: 16px;
-    padding-left: 9px;
 }
 
 .users-list{
@@ -114,15 +111,14 @@ users-list a .status-dot.offline{
     display:flex;
     align-items: center;
     justify-content: space-between;
-    /* border-bottom: 1px solid #e6e6e6; */
     border-bottom-color: #f1f1f1;
 }
 
 .users-list a:hover{
-    background-color: #e4edf5;
-    border-radius: 5px;
-    /* width:4px;
-    height:4px; */
+    /* background-color: #e4edf5; */
+    outline: none;
+    border-radius: 16px;
+    
 }
 
 .users-list a:last-child{

@@ -28,8 +28,12 @@ Route::get('/man',function(){
 })->middleware(UserAuth::class);
 
 // Enregistrement de l' utilisateur
-Route::get('/registers',[UserController::class,'register'])->name('user.register');
-Route::post('/registers',[UserController::class,'store'])->name('user.store');
+Route::get('/register',[UserController::class,'register'])->name('user.register');
+Route::post('/register',[UserController::class,'store'])->name('user.store');
+
+// Route::get('/register',function(){
+//     return "";
+// });
 
 // Authentification
 Route::get('/',[UserController::class,'login'])->name('user.login');
@@ -42,6 +46,5 @@ Route::get('/home',[UserController::class,'home'])->name('user.home')->middlewar
 Route::get('/file',[UserController::class,'file'])->name('user.file')->middleware(UserAuth::class);
 
 //page de chat
-
 Route::get('/chat',[UserController::class,'chat'])->name('user.file')->middleware(UserAuth::class);
 
