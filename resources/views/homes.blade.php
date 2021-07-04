@@ -55,12 +55,26 @@
             </a><a href="">
                 <div class="content">
                     <img src="user.png" alt="">
-                    <div class="details">
+                <div class="details">
                         <span>Coding David</span>
                         <p>This is test message</p>
                     </div>
                 </div>
-                <div class="status-dot"><i class="fa fa-circle"></i></div>
+                <div class="status-dot">
+                    <i class="fa fa-circle"></i>
+                </div>
+            </a>
+            <a href="">
+                <div class="content">
+                    <img src="user.png" alt="">
+                <div class="details">
+                        <span>Coding David</span>
+                        <p>This is test message</p>
+                    </div>
+                </div>
+                <div class="status-dot">
+                    <i class="fa fa-circle"></i>
+                </div>
             </a>
         </div>
 

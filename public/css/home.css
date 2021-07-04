@@ -77,29 +77,57 @@ body{
 }
 
 .friends{
-    padding-right:30px;
+    padding-right:9px;
     background: white;
     width: 700px;
     margin:0 auto;
     border-radius: 16px;
-    padding-left: 30px;
+    padding-left: 9px;
 }
 
 .users-list{
-    
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.users-list::-webkit-scrollbar{
+    width:0px;
 }
 
 users-list a .status-dot{
     font-size:12px;
+    height:10px;
+    width:10px;
     color:#468669;
+}
+/* We use it to show offline status in php */
+users-list a .status-dot.offline{
+    color:#ccc;
 }
 
 .users-list a{
+    text-decoration: none;
+    margin-bottom: 15px;
+    page-break-after: 10px;
     padding-right:15px;
+    padding-left:15px;
     display:flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #e6e6e6;
+    /* border-bottom: 1px solid #e6e6e6; */
+    border-bottom-color: #f1f1f1;
+}
+
+.users-list a:hover{
+    background-color: #e4edf5;
+    border-radius: 5px;
+    /* width:4px;
+    height:4px; */
+}
+
+.users-list a:last-child{
+    border:none;
+    margin-bottom: 0px;
 }
 
 .users-list  .details span{
@@ -119,6 +147,11 @@ users-list a .status-dot{
 }
 .users-list a .content img{
     height: 40px;
+    object-fit: cover;
     width:40px; 
     border-radius:50%;  
+}
+
+.users-list a .content p{
+    color:#67676a;
 }

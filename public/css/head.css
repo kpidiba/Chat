@@ -38,6 +38,7 @@ body{
 
 .chat_profile img{
     height: 50px;
+    object-fit: cover;
     width: 50px;
     border-radius: 50%;
     background: #f3f6fd;
