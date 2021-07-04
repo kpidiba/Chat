@@ -61,9 +61,13 @@ form .field i{
     position: absolute;
     top: 50%;
     font-size: 18px;
-    pointer-events:none;
     transform:translateY(-50%) ;
+    right:15px;
+    color:#ccc;
+    cursor: pointer;
+    
 }
+
 
 form .field .icon{
     left:15px;

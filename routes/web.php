@@ -36,8 +36,12 @@ Route::get('/',[UserController::class,'login'])->name('user.login');
 Route::post('/',[UserController::class,'connect'])->name('user.connect');
 
 //page principale
- Route::get('/home',[UserController::class,'home'])->name('user.home')->middleware(UserAuth::class);
- Route::get('/file',[UserController::class,'file'])->name('user.file');
+Route::get('/home',[UserController::class,'home'])->name('user.home')->middleware(UserAuth::class);
 
+//page pour changer la photo de l' utilisateur
+Route::get('/file',[UserController::class,'file'])->name('user.file')->middleware(UserAuth::class);
 
+//page de chat
+
+Route::get('/chat',[UserController::class,'chat'])->name('user.file')->middleware(UserAuth::class);
 

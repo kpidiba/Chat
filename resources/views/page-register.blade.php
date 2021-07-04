@@ -37,6 +37,7 @@
                 <div class="field">
                     <label>Mot de passe</label>
                     <input class="input" type="password" name="password" placeholder="mot de passe">
+                    <i class="fa fa-eye i-css"></i>
                 </div>
                 <div class="field">
                     <label>email</label>

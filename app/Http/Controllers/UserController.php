@@ -118,4 +118,8 @@ class UserController extends Controller
     public function home(){
         return view('homes');
     }
+
+    public function chat(){
+        return view('chat');
+    }
 }
