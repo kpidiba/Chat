@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@extends('pages.nav-bar')
 
 @section('title')
     Page de chat
@@ -22,6 +22,48 @@
             <div class="icon"><i class="fa fa-search"></i></div>
         </div>
     </div>
-    akakakak
+
+    <div class="friends">
+        <div class="users-list">
+            <a href="">
+                <div class="content">
+                    <img src="user.png" alt="">
+                    <div class="details">
+                        <span>Coding David</span>
+                        <p>This is test message</p>
+                    </div>
+                </div>
+                <div class="status-dot"><i class="fa fa-circle"></i></div>
+            </a><a href="">
+                <div class="content">
+                    <img src="user.png" alt="">
+                    <div class="details">
+                        <span>Coding David</span>
+                        <p>This is test message</p>
+                    </div>
+                </div>
+                <div class="status-dot"><i class="fa fa-circle"></i></div>
+            </a><a href="">
+                <div class="content">
+                    <img src="user.png" alt="">
+                    <div class="details">
+                        <span>Coding David</span>
+                        <p>This is test message</p>
+                    </div>
+                </div>
+                <div class="status-dot"><i class="fa fa-circle"></i></div>
+            </a><a href="">
+                <div class="content">
+                    <img src="user.png" alt="">
+                    <div class="details">
+                        <span>Coding David</span>
+                        <p>This is test message</p>
+                    </div>
+                </div>
+                <div class="status-dot"><i class="fa fa-circle"></i></div>
+            </a>
+        </div>
+
+    </div>
 </div>
 @endsection

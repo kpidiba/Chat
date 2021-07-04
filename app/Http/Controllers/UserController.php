@@ -51,10 +51,7 @@ class UserController extends Controller
 
         //Entrez des donnees de l'utilisateur
         $pass = Crypt::encrypt($data['password']);
-        if( empty($data['file']) ){
             $data['file']="user.png";
-            dd($data['file']);
-        }
 
         try{
             

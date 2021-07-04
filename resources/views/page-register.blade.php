@@ -43,10 +43,6 @@
                     <input class="input" type="email" name="email" placeholder="email">
                 </div>
                 <div class="field">
-                    <label>Select image</label>
-                    <input class="input-file" type="file" name="file" >
-                </div>
-                <div class="field">
                     <input class="input button" type="submit" value="Commencez le chat">
                 </div>
                 <div >Vous avez deja un compte?<a class="link" href="{{ route('user.login') }}">Se Connecter</a></div>
