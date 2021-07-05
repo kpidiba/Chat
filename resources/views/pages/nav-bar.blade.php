@@ -34,8 +34,8 @@
                     </div>
                     <div class="menu">
                         <ul>
-                            <li><i class="fa fa-user"><a href="">Edit Profile</a></i></li>
-                            <li><i class="fa fa-sign-out"><a href="">Log Out</a></i></li>
+                            <li><i class="fa fa-user"></i><a href=""> <span> Editer Profile</span></a></li>
+                            <li class="line"><i class="fa fa-sign-out"></i><a href=""><span> Deconnecter</span></a></li>
                         </ul>
                     </div>
                     <div class="chat_menu">

@@ -111,6 +111,13 @@ class UserController extends Controller
         }
         
         $request->session()->put('email',$data['email']);
+
+        DB::table('utilisateurs')
+        ->where('email', $data['email'])
+        ->update([
+            'status' => 1,
+            'last_login' => \Carbon\Carbon::now()->toDateTimeString(),
+        ]);
         return redirect()->route('user.home');
             
     }

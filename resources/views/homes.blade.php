@@ -21,7 +21,7 @@
             </div>
             <div class="icon"><i class="fa fa-search"></i></div>
         </div>
-        <button class="btn  btn-add"><i class="fa fa-plus">ADD FRIEND</i></button>
+        <button class="btn  btn-add" id="button" ><i class="fa fa-plus">ADD FRIEND</i></button>
     </div>
 
     <div class="friends">
@@ -81,5 +81,11 @@
 
     </div>
 </div>
-
+<div class="popup">
+    <div class="popup-content">
+        <i class="fa fa-close close"></i>
+    </div>
+</div>
+<script src="{{ asset('js/home.js') }}" ></script>
 @endsection
+

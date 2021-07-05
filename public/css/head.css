@@ -130,7 +130,7 @@ body{
     content:'';
     position:absolute;
     top: -5px;
-    right:90px;
+    right:98px;
     width:20px;
     height: 20px;
     background: #fff;
@@ -139,12 +139,14 @@ body{
 }
 
 #mca_side_bar .menu{
+    /* Partie cache pour l' instant */
+    display: none;
     position:absolute;
     top:80px;
     left:40px;
-    width:120px;
+    width:130px;
     list-style: none;
-    padding-top:12px;
+    padding-top:10px;
     background: #fff;
     box-sizing: 0 5px 5px 25px rgba(0,0,0,0.1);
     border-radius:15px;
@@ -153,7 +155,7 @@ body{
 
 #mca_side_bar .menu ul li{
     list-style:none;
-    padding:10px 0;
+    padding:8px 0;
     border-top:1px solid rgba(0,0,0,0.05);
     direction:flex;
     align-items: center;
@@ -162,6 +164,28 @@ body{
 
 #mca_side_bar .menu ul li i a{
     width: 100px;
-    max-width: 20px;
+    max-width: 10px;
     padding-left:10px;
+}
+
+#mca_side_bar .menu ul li i{
+    opacity:0.5;
+    transition: 0.5s;
+}
+
+#mca_side_bar .menu ul li:hover i{
+    opacity:1;
+}
+
+#mca_side_bar .menu ul li  span{
+    opacity:inherit;
+    margin-left:10px;
+}
+
+#mca_side_bar .menu ul li a{
+    text-decoration: none; 
+}
+
+#mca_side_bar .menu ul .line{
+    border-bottom:1px solid rgba(0,0,0,0.1);
 }
