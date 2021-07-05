@@ -50,5 +50,7 @@
             </form>
         </section>
     </div>
+
+    <script src="{{ asset('js/pass-hide1.js') }}" ></script>
 @endsection
 

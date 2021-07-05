@@ -52,6 +52,11 @@ form .name-details .field:first-child{
     margin-bottom: 10px;
 }
 
+.form form .field i.active::before{
+    color: #333;
+    content:"\f070";
+}
+
 .form form .field label{
     margin-bottom: 2px;
 }

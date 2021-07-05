@@ -38,5 +38,7 @@
         </form>
         <div class="signup-link">Vous avez un compte?<a href="{{ route('user.register') }}">S'inscrire</a></div>
     </div>
+    
+    <script src="{{ asset('js/pass-hide2.js') }}" ></script>
 @endsection
 

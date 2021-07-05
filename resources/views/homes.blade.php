@@ -12,7 +12,7 @@
 <div class="bod" >
     <div class="wrapper">
         <div class="search-input">
-            <input type="text" placeholder="Search Your Friend ">
+            <input type="text" placeholder="Search Your Friend">
             <div class="autocom-box">
                 <li>Broter in arms</li>
                 <li>Don't want this</li>
@@ -21,6 +21,7 @@
             </div>
             <div class="icon"><i class="fa fa-search"></i></div>
         </div>
+        <button class="btn  btn-add"><i class="fa fa-plus">ADD FRIEND</i></button>
     </div>
 
     <div class="friends">
@@ -80,4 +81,5 @@
 
     </div>
 </div>
+
 @endsection
