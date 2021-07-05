@@ -30,6 +30,10 @@ body{
     text-align: center;
 }
 
+.chat_profile{
+    margin-bottom: 70px;
+}
+
 #mca_side_bar .chat_profile{
     height: 15%;
     padding-top: 10px;
@@ -120,4 +124,44 @@ body{
     width: 50px;
     height: 50px;
     font-size: 17px;
+}
+
+#mca_side_bar .menu::before{
+    content:'';
+    position:absolute;
+    top: -5px;
+    right:90px;
+    width:20px;
+    height: 20px;
+    background: #fff;
+    transform: rotate(30deg);
+
+}
+
+#mca_side_bar .menu{
+    position:absolute;
+    top:80px;
+    left:40px;
+    width:120px;
+    list-style: none;
+    padding-top:12px;
+    background: #fff;
+    box-sizing: 0 5px 5px 25px rgba(0,0,0,0.1);
+    border-radius:15px;
+    transition: 0.5s ;
+}
+
+#mca_side_bar .menu ul li{
+    list-style:none;
+    padding:10px 0;
+    border-top:1px solid rgba(0,0,0,0.05);
+    direction:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mca_side_bar .menu ul li i a{
+    width: 100px;
+    max-width: 20px;
+    padding-left:10px;
 }
