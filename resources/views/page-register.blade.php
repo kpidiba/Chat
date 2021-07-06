@@ -1,3 +1,5 @@
+
+
 @extends('layouts.head')
 
 @section('title')
@@ -12,7 +14,7 @@
     <div class="wrapper">
         <section class="form signup" >
             <header>Register Form</header>
-            <form method="POST" action="{{route('user.store')}}">
+            <form method="POST" action="#">
                 @csrf
                 {{-- ERROR CHAMPS VIDES  --}}
                 @if ( session()->has('failed') )                    
@@ -23,7 +25,7 @@
                 <div class="name-details">
                     <div class="field">
                         <label>Nom</label>
-                        <input class="input" type="text" name="nom" placeholder="NOM" autofocus >
+                        <input id="name" class="input" type="text" name="nom" placeholder="NOM" autofocus >
                     </div>
                     <div class="field">
                         <label>Prenom</label>
@@ -51,6 +53,6 @@
         </section>
     </div>
 
-    <script src="{{ asset('js/pass-hide1.js') }}" ></script>
+    <script src="{{ asset('js/register.js') }}"></script>
 @endsection
 

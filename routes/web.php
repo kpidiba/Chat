@@ -15,36 +15,38 @@ use App\Http\Middleware\UserAuth;
 |
 */
 
-// Route::get('/', function () {
+// Route::GET('/', function () {
 //     return view('welcome');
 // });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::GET('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/man',function(){
+Route::GET('/man',function(){
     dd('hello world');
 })->middleware(UserAuth::class);
 
 // Enregistrement de l' utilisateur
-Route::get('/register',[UserController::class,'register'])->name('user.register');
-Route::post('/register',[UserController::class,'store'])->name('user.store');
+Route::GET('/register',[UserController::class,'register'])->name('user.register');
+// Route::POST('/register',[UserController::class,'store'])->name('user.store');
 
-// Route::get('/register',function(){
+Route::POST('/registers',function(){
+    return "man with a mission";
+});
+// Route::GET('/register',function(){
 //     return "";
 // });
 
 // Authentification
-Route::get('/',[UserController::class,'login'])->name('user.login');
-Route::post('/',[UserController::class,'connect'])->name('user.connect');
+Route::GET('/',[UserController::class,'login'])->name('user.login');
+Route::POST('/',[UserController::class,'connect'])->name('user.connect');
 
 //page principale
-Route::get('/home',[UserController::class,'home'])->name('user.home')->middleware(UserAuth::class);
+Route::GET('/home',[UserController::class,'home'])->name('user.home')->middleware(UserAuth::class);
 
 //page pour changer la photo de l' utilisateur
-Route::get('/file',[UserController::class,'file'])->name('user.file')->middleware(UserAuth::class);
+Route::GET('/file',[UserController::class,'file'])->name('user.file')->middleware(UserAuth::class);
 
 //page de chat
-Route::get('/chat',[UserController::class,'chat'])->name('user.file')->middleware(UserAuth::class);
-
+Route::GET('/chat',[UserController::class,'chat'])->name('user.file')->middleware(UserAuth::class);
