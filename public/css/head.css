@@ -139,7 +139,6 @@ body{
 }
 
 #mca_side_bar .menu{
-    /* Partie cache pour l' instant */
     display: none;
     position:absolute;
     top:80px;
@@ -155,7 +154,7 @@ body{
 
 #mca_side_bar .menu ul li{
     list-style:none;
-    padding:8px 0;
+    padding:10px 0;
     border-top:1px solid rgba(0,0,0,0.05);
     direction:flex;
     align-items: center;
@@ -171,6 +170,7 @@ body{
 #mca_side_bar .menu ul li i{
     opacity:0.5;
     transition: 0.5s;
+    padding-left:5px;
 }
 
 #mca_side_bar .menu ul li:hover i{
