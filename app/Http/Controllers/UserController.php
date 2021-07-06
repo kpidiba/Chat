@@ -21,7 +21,17 @@ class UserController extends Controller
         return view('file');
     }
     public function store(Request $request){
-        
+        dd("david");
+        if ($request->ajax() || $request->isXmlHttpRequest())
+{
+    $response = response()->json("david");
+}
+else
+{
+    return redirect()->route('user.home');
+}
+
+return $response;
         // //recuperation des donnees des differents champs
         // $data = $request->input();
 
@@ -142,6 +152,5 @@ class UserController extends Controller
             'last_login' => \Carbon\Carbon::now()->toDateTimeString(),
         ]);
         return redirect()->route('user.login');
-
     }
 }

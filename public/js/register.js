@@ -20,31 +20,17 @@ form.onsubmit = (e)=>{
     e.preventDefault();
 }
 
+
 continueBtn.onclick = ()=>{
-    // let xhr = new XMLHttpRequest();
-    // xhr.open("POST","http://localhost:8000/register",true);
-    // xhr.onload = ()=>{
-    //     alert(xhr.status);
-    //     if(xhr.readyState === XMLHttpRequest.DONE){
-    //         if(xhr.status === 200){
-    //             let data = xhr.response;
-    //             console.log(data);
-    //         }
-    //     }
-    // }   
-    // xhr.send();
-    alert("bb");
-    $.ajax({
-        url: "/register",
-        type:"POST",
-        data: { testdata : 'testdatacontent' },
-        success:function(data){
-            alert(data);
-        },error:function(){ 
-            alert("error!!!!");
+    let xhr = new XMLHttpRequest(); 
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4 && xhr.status==200) {
+            console.log(this.responseText);
         }
-    });
-    
-    
+    }
+
+    xhr.open("POST", "/register", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-formurlencoded");
+    xhr.send("fname=Henry&lname=Ford");
     };
 

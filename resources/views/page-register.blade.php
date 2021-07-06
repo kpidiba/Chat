@@ -14,7 +14,7 @@
     <div class="wrapper">
         <section class="form signup" >
             <header>Register Form</header>
-            <form method="POST" action="#">
+            <form method="POST" >
                 @csrf
                 {{-- ERROR CHAMPS VIDES  --}}
                 @if ( session()->has('failed') )                    
