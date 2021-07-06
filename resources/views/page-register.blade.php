@@ -14,14 +14,12 @@
     <div class="wrapper">
         <section class="form signup" >
             <header>Register Form</header>
-            <form method="POST" >
+            <form method="POST"  >
                 @csrf
                 {{-- ERROR CHAMPS VIDES  --}}
-                @if ( session()->has('failed') )                    
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <div class="css-alert alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>Error!</strong> {{ session()->get('failed') }}
                     </div>
-                @endif
                 <div class="name-details">
                     <div class="field">
                         <label>Nom</label>

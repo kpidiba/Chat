@@ -21,68 +21,59 @@ class UserController extends Controller
         return view('file');
     }
     public function store(Request $request){
-        dd("david");
-        if ($request->ajax() || $request->isXmlHttpRequest())
-{
-    $response = response()->json("david");
-}
-else
-{
-    return redirect()->route('user.home');
-}
+        //recuperation des donnees des differents champs
+        $data = $request->input();
 
-return $response;
-        // //recuperation des donnees des differents champs
-        // $data = $request->input();
-
-        // //verifier si le nom existe deja
-        // $emailver = DB::table('utilisateurs')
-        // ->where('email', $data['email'])
-        // ->get();
-        // if( !count($emailver)== 0 ){
-        //     return redirect()->route('user.register')
-        //     ->withInput()
-        //     ->with('failed connection',"Change Your E-MAIL");
-        // }
+        //verifier si l ' email existe
+        $emailver = DB::table('utilisateurs')
+        ->where('email', $data['email'])
+        ->get();
         
-        // //Si les champs obligatoires sont remplis
-        // $rules = [
-        //     'nom' => 'required',
-        //     'prenom' =>'required',
-        //     'date' => 'required',
-        //     'email' => 'required',
-        //     'password' => 'required',
-        // ];
-        // $validator = Validator::make($request->all(),$rules);
-        // if ($validator->fails()) {
-        //     return redirect()->route('user.register')
-        //     ->withInput()
-        //     ->with('failed',"Remplissez les champs");
-        // }
+        // verifier si le prenom existe deja
+        $prenomver = DB::table('utilisateurs')
+        ->where('prenom', $data['prenom'])
+        ->get();
+        
+        //Si les champs obligatoires sont remplis
+        $rules = [
+            'nom' => 'required',
+            'prenom' =>'required',
+            'date' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ];
+        $validator = Validator::make($request->all(),$rules);
+        
+        if ($validator->fails()) {
+            echo "Remplissez les champs";
+        }else if( !count($prenomver) == 0 ){
+            echo "Changez Votre Prenom";
+        }else if( !count($emailver) == 0 ){
+            echo "Changez Votre E-MAIL";
+        }else{
+            //Entrez des donnees de l'utilisateur
+            $pass = Crypt::encrypt($data['password']);
+            $data['file']="user.png";
 
-        // //Entrez des donnees de l'utilisateur
-        // $pass = Crypt::encrypt($data['password']);
-        //     $data['file']="user.png";
-
-        // try{
-            
-        //     DB::table('utilisateurs')->insert([
-        //         'nom' => $data['nom'],
-        //         'prenom' => $data['prenom'],
-        //         'dnais' => $data['date'],
-        //         'image' => $data['file'],
-        //         'password' => $pass,
-        //         'email'  => $data['email'],
-        //         'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-        //         'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
-        //     ]);
-        //     $request->session()->put('email',$data['email']);
-        //     return redirect()->route('user.home');
-        // }
-        // catch(Exception $e){
-        //     return redirect()->route('user.register')->with('failed',"operation failed");
-        // }
-
+            try{
+                
+                DB::table('utilisateurs')->insert([
+                    'nom' => $data['nom'],
+                    'prenom' => $data['prenom'],
+                    'dnais' => $data['date'],
+                    'image' => $data['file'],
+                    'password' => $pass,
+                    'email'  => $data['email'],
+                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+                ]);
+                $request->session()->put('email',$data['email']);
+                echo "success";
+            }
+            catch(Exception $e){
+                echo "error with input";
+            }
+        }
     }      
 
     public function connect(Request $request){

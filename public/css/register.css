@@ -137,3 +137,9 @@ form .field i{
 .link:hover{
     text-decoration: underline;
 }
+
+/* Pour l' affichage des erreurs */
+
+.css-alert{
+    display:none;
+}

@@ -29,7 +29,7 @@ Route::GET('/man',function(){
 
 // Enregistrement de l' utilisateur
 Route::GET('/register',[UserController::class,'register'])->name('user.register');
-// Route::POST('/register',[UserController::class,'store'])->name('user.store');
+Route::POST('/register',[UserController::class,'store'])->name('user.store');
 
 Route::POST('/registers',function(){
     return "man with a mission";

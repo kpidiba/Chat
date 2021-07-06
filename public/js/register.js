@@ -15,6 +15,7 @@ toggleBtn.onclick = ()=>{
 
 const form = document.querySelector(".signup form"),
 continueBtn = form.querySelector(".form .field .button");
+btnAlert = form.querySelector(".form .css-alert");
 
 form.onsubmit = (e)=>{
     e.preventDefault();
@@ -22,15 +23,22 @@ form.onsubmit = (e)=>{
 
 
 continueBtn.onclick = ()=>{
-    let xhr = new XMLHttpRequest(); 
-    xhr.onreadystatechange = function(){
-        if (xhr.readyState == 4 && xhr.status==200) {
-            console.log(this.responseText);
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST","/register",true);
+    xhr.onload = ()=>{
+        if(xhr.readyState === XMLHttpRequest.DONE){
+            let data = xhr.response;
+            if( data == "success"){
+                location.href="/home";
+                alert("david");
+            }else{
+                btnAlert.textContent =data;
+                btnAlert.style.display="flex";
+            }
         }
     }
+    let formData = new FormData(form);
 
-    xhr.open("POST", "/register", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-formurlencoded");
-    xhr.send("fname=Henry&lname=Ford");
+    xhr.send(formData)    
     };
 
