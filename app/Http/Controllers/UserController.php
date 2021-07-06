@@ -21,56 +21,57 @@ class UserController extends Controller
     }
     public function store(Request $request){
         
-        //recuperation des donnees des differents champs
-        $data = $request->input();
+        // //recuperation des donnees des differents champs
+        // $data = $request->input();
 
-        //verifier si le nom existe deja
-        $emailver = DB::table('utilisateurs')
-        ->where('email', $data['email'])
-        ->get();
-        if( !count($emailver)== 0 ){
-            return redirect()->route('user.register')
-            ->withInput()
-            ->with('failed connection',"Change Your E-MAIL");
-        }
+        // //verifier si le nom existe deja
+        // $emailver = DB::table('utilisateurs')
+        // ->where('email', $data['email'])
+        // ->get();
+        // if( !count($emailver)== 0 ){
+        //     return redirect()->route('user.register')
+        //     ->withInput()
+        //     ->with('failed connection',"Change Your E-MAIL");
+        // }
         
-        //Si les champs obligatoires sont remplis
-        $rules = [
-            'nom' => 'required',
-            'prenom' =>'required',
-            'date' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-        ];
-        $validator = Validator::make($request->all(),$rules);
-        if ($validator->fails()) {
-            return redirect()->route('user.register')
-            ->withInput()
-            ->with('failed',"Remplissez les champs");
-        }
+        // //Si les champs obligatoires sont remplis
+        // $rules = [
+        //     'nom' => 'required',
+        //     'prenom' =>'required',
+        //     'date' => 'required',
+        //     'email' => 'required',
+        //     'password' => 'required',
+        // ];
+        // $validator = Validator::make($request->all(),$rules);
+        // if ($validator->fails()) {
+        //     return redirect()->route('user.register')
+        //     ->withInput()
+        //     ->with('failed',"Remplissez les champs");
+        // }
 
-        //Entrez des donnees de l'utilisateur
-        $pass = Crypt::encrypt($data['password']);
-            $data['file']="user.png";
+        // //Entrez des donnees de l'utilisateur
+        // $pass = Crypt::encrypt($data['password']);
+        //     $data['file']="user.png";
 
-        try{
+        // try{
             
-            DB::table('utilisateurs')->insert([
-                'nom' => $data['nom'],
-                'prenom' => $data['prenom'],
-                'dnais' => $data['date'],
-                'image' => $data['file'],
-                'password' => $pass,
-                'email'  => $data['email'],
-                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
-            ]);
-            $request->session()->put('email',$data['email']);
-            return redirect()->route('user.home');
-        }
-        catch(Exception $e){
-            return redirect()->route('user.register')->with('failed',"operation failed");
-        }
+        //     DB::table('utilisateurs')->insert([
+        //         'nom' => $data['nom'],
+        //         'prenom' => $data['prenom'],
+        //         'dnais' => $data['date'],
+        //         'image' => $data['file'],
+        //         'password' => $pass,
+        //         'email'  => $data['email'],
+        //         'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+        //         'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+        //     ]);
+        //     $request->session()->put('email',$data['email']);
+        //     return redirect()->route('user.home');
+        // }
+        // catch(Exception $e){
+        //     return redirect()->route('user.register')->with('failed',"operation failed");
+        // }
+        
     }      
 
     public function connect(Request $request){

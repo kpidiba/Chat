@@ -13,7 +13,10 @@
     <div class="container">
         <div class="wrapper">
             <div class="image">
-                <img src="" alt="">
+            @if({{ route('/', ['id'=>1]) }})
+                
+            @endif
+                <img src="user.png" alt="">
             </div>
             <div class="content" >
                 <div class="icon"><i class="fa fa-cloud-upload"></i></div>

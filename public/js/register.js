@@ -33,4 +33,7 @@ continueBtn.onclick = ()=>{
         }
     }   
     xhr.send();
+    
+    
     };
+
