@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Crypt;
+use Session;
 
 class UserController extends Controller
 {
@@ -71,7 +72,7 @@ class UserController extends Controller
         // catch(Exception $e){
         //     return redirect()->route('user.register')->with('failed',"operation failed");
         // }
-        
+
     }      
 
     public function connect(Request $request){
@@ -129,5 +130,18 @@ class UserController extends Controller
 
     public function chat(){
         return view('chat');
+    }
+
+    public function disconnect(){
+        $a=Session::get('email');
+        Session::forget('email');
+        DB::table('utilisateurs')
+        ->where('email', $a)
+        ->update([
+            'status' => 0,
+            'last_login' => \Carbon\Carbon::now()->toDateTimeString(),
+        ]);
+        return redirect()->route('user.login');
+
     }
 }

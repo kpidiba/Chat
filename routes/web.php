@@ -45,8 +45,11 @@ Route::POST('/',[UserController::class,'connect'])->name('user.connect');
 //page principale
 Route::GET('/home',[UserController::class,'home'])->name('user.home')->middleware(UserAuth::class);
 
+//Route de deconnection
+Route::GET('/diconnect',[UserController::class,'disconnect'])->name('user.disconnect');
+
 //page pour changer la photo de l' utilisateur
 Route::GET('/file',[UserController::class,'file'])->name('user.file')->middleware(UserAuth::class);
 
 //page de chat
-Route::GET('/chat',[UserController::class,'chat'])->name('user.file')->middleware(UserAuth::class);
+Route::GET('/chat',[UserController::class,'chat'])->name('user.chat')->middleware(UserAuth::class);

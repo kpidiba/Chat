@@ -21,18 +21,29 @@ form.onsubmit = (e)=>{
 }
 
 continueBtn.onclick = ()=>{
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST","http://localhost:8000/register",true);
-    xhr.onload = ()=>{
-        alert(xhr.status);
-        if(xhr.readyState === XMLHttpRequest.DONE){
-            if(xhr.status === 200){
-                let data = xhr.response;
-                console.log(data);
-            }
+    // let xhr = new XMLHttpRequest();
+    // xhr.open("POST","http://localhost:8000/register",true);
+    // xhr.onload = ()=>{
+    //     alert(xhr.status);
+    //     if(xhr.readyState === XMLHttpRequest.DONE){
+    //         if(xhr.status === 200){
+    //             let data = xhr.response;
+    //             console.log(data);
+    //         }
+    //     }
+    // }   
+    // xhr.send();
+    alert("bb");
+    $.ajax({
+        url: "/register",
+        type:"POST",
+        data: { testdata : 'testdatacontent' },
+        success:function(data){
+            alert(data);
+        },error:function(){ 
+            alert("error!!!!");
         }
-    }   
-    xhr.send();
+    });
     
     
     };

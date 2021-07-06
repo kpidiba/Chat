@@ -139,6 +139,7 @@ body{
 }
 
 #mca_side_bar .menu{
+    z-index: 10;
     display: none;
     position:absolute;
     top:80px;
@@ -153,6 +154,7 @@ body{
 }
 
 #mca_side_bar .menu ul li{
+    cursor: pointer;
     list-style:none;
     padding:10px 0;
     border-top:1px solid rgba(0,0,0,0.05);

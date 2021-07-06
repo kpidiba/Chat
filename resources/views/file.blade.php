@@ -13,9 +13,6 @@
     <div class="container">
         <div class="wrapper">
             <div class="image">
-            @if({{ route('/', ['id'=>1]) }})
-                
-            @endif
                 <img src="user.png" alt="">
             </div>
             <div class="content" >
