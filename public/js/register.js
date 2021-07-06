@@ -30,7 +30,6 @@ continueBtn.onclick = ()=>{
             let data = xhr.response;
             if( data == "success"){
                 location.href="/home";
-                alert("david");
             }else{
                 btnAlert.textContent =data;
                 btnAlert.style.display="flex";

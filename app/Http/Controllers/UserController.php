@@ -43,8 +43,10 @@ class UserController extends Controller
             'password' => 'required',
         ];
         $validator = Validator::make($request->all(),$rules);
-        
-        if ($validator->fails()) {
+
+        if(strlen($data['password'])<8){
+            echo "Mot de passe doit contenir au moins 8 caracteres";
+        }else if ($validator->fails()) {
             echo "Remplissez les champs";
         }else if( !count($prenomver) == 0 ){
             echo "Changez Votre Prenom";
