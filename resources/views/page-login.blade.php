@@ -14,14 +14,12 @@
 
     <div class="wrapper">
         <header>Login Form</header>
-        <form method="post" action="{{ route('user.connect') }}">
+        <form method="post" ->
             @csrf
             {{-- ERROR CHAMPS VIDES  --}}
-            @if ( session()->has('failed') )                    
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Error!</strong> {{ session()->get('failed') }}
+                <div class="error-css alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Error!</strong> 
                 </div>
-            @endif
             <div class="field email">
                 <div class="input-area">
                     <input class="input-center" type="text" name="email" placeholder="email" autofocus required>

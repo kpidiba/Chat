@@ -20,6 +20,7 @@ class UserController extends Controller
     public function file(){
         return view('file');
     }
+    
     public function store(Request $request){
         //recuperation des donnees des differents champs
         $data = $request->input();
@@ -48,6 +49,8 @@ class UserController extends Controller
             echo "Mot de passe doit contenir au moins 8 caracteres";
         }else if ($validator->fails()) {
             echo "Remplissez les champs";
+        }else if(filter_var($data['email'],FILTER_VALIDATE_EMAIL)){
+            echo $data['email']."n' est pas un email valide";
         }else if( !count($prenomver) == 0 ){
             echo "Changez Votre Prenom";
         }else if( !count($emailver) == 0 ){
@@ -87,12 +90,6 @@ class UserController extends Controller
         
         $validator = Validator::make($request->all(),$rules);
 
-        if ($validator->fails()) {
-			return redirect()->route('user.login')
-			->withInput()
-			->with('failed',"Remplissez les champs");
-		}
-
         // Verification de l'existence de l 'utilisateur
         $data = $request->input();
         $users = DB::table('utilisateurs')
@@ -102,29 +99,28 @@ class UserController extends Controller
     // Verification du mot de passe
         if ( count($users) != 0 ){
             $a =  Crypt::decrypt($users[0]->password);
-        }else{
-            return redirect()->route('user.login')
-            ->withInput()
-            ->with('failed',"ce compte n'existe pas");
-        }
-        
-        //verifier si le mot de passe correspond
-        if($a != $data['password']){
-            return redirect()->route('user.login')
-            ->withInput()
-            ->with('failed',"mot de passe Incorrect");
-        }
-        
-        $request->session()->put('email',$data['email']);
 
-        DB::table('utilisateurs')
-        ->where('email', $data['email'])
-        ->update([
-            'status' => 1,
-            'last_login' => \Carbon\Carbon::now()->toDateTimeString(),
-        ]);
-        return redirect()->route('user.home');
-            
+            if ($validator->fails()) {
+                echo "Remplissez les champs";
+            }else if($a != $data['password']){
+                echo "mot de passe Incorrect";
+            }else if(filter_var($data['email'],FILTER_VALIDATE_EMAIL)){
+                echo $data['email']."n' est pas un email valide";
+            }else{
+                $request->session()->put('email',$data['email']);
+
+                DB::table('utilisateurs')
+                ->where('email', $data['email'])
+                ->update([
+                    'status' => 1,
+                    'last_login' => \Carbon\Carbon::now()->toDateTimeString(),
+                ]);
+                echo "success";
+            }
+
+        }else{
+            echo "ce compte n'existe pas";
+        }            
     }
 
     public function home(){

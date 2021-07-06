@@ -110,3 +110,7 @@ form .field i.active::before{
 input[type="submit"]:hover{
     background: #2c52ed;
 }
+
+.error-css{
+    display: none;
+}

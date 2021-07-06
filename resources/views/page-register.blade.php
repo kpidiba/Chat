@@ -18,7 +18,7 @@
                 @csrf
                 {{-- ERROR CHAMPS VIDES  --}}
                     <div class="css-alert alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>Error!</strong> {{ session()->get('failed') }}
+                        <strong>Error!</strong>
                     </div>
                 <div class="name-details">
                     <div class="field">
