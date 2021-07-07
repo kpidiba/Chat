@@ -82,6 +82,8 @@ class UserController extends Controller
     }      
 
     public function connect(Request $request){
+        //recuperation de toutes les valeurs du formulaire
+        $data = $request->input();
         //Verification des donnees de tous les champs
         $rules =[
             'email' => 'required',
@@ -90,31 +92,40 @@ class UserController extends Controller
         
         $validator = Validator::make($request->all(),$rules);
 
-        // Verification de l'existence de l 'utilisateur
-        $data = $request->input();
+        //recuperation des donnees de tous les utilisateurs
         $users = DB::table('utilisateurs')
+        ->get();
+
+        // Verification de l'existence de l 'utilisateur
+        $user = DB::table('utilisateurs')
         ->where('email', $data['email'])
         ->get();
 
-    // Verification du mot de passe
-        if ( count($users) != 0 ){
-            $a =  Crypt::decrypt($users[0]->password);
+        // Verification du mot de passe
+        if ($validator->fails()) {
+            echo "Remplissez les champs";
+        }else if ( count($user) != 0 ){
+            //recuperation du mot de passe
+            $a =  Crypt::decrypt($user[0]->password);
 
-            if ($validator->fails()) {
-                echo "Remplissez les champs";
-            }else if($a != $data['password']){
+            //toutes les verifications
+            
+            if($a != $data['password']){
                 echo "mot de passe Incorrect";
-            }else if(filter_var($data['email'],FILTER_VALIDATE_EMAIL)){
+            }else if(!filter_var($data['email'],FILTER_VALIDATE_EMAIL)){
                 echo $data['email']."n' est pas un email valide";
             }else{
+                
                 $request->session()->put('email',$data['email']);
-
+                $request->session()->put('users',$users);
+                //changer le status de l' utilisateur
                 DB::table('utilisateurs')
                 ->where('email', $data['email'])
                 ->update([
                     'status' => 1,
                     'last_login' => \Carbon\Carbon::now()->toDateTimeString(),
                 ]);
+                // Route::view('homes',['users',$users]);
                 echo "success";
             }
 
@@ -141,5 +152,7 @@ class UserController extends Controller
             'last_login' => \Carbon\Carbon::now()->toDateTimeString(),
         ]);
         return redirect()->route('user.login');
+
+        
     }
 }

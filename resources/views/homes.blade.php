@@ -1,3 +1,8 @@
+@php
+    //Recuperation de tous les utilisateurs
+    $users=session('users');
+@endphp
+
 @extends('pages.nav-bar')
 
 @section('title')
@@ -21,7 +26,7 @@
             </div>
             <div class="icon"><i class="fa fa-search"></i></div>
         </div>
-        <button class="btn  btn-add" id="button" ><i class="fa fa-plus">ADD FRIEND</i></button>
+        <button class="btn  btn-add" id="button" ><i class="fa fa-plus">ADD FRIEND{{session('users')}}</i></button>
     </div>
 
     <div class="friends">

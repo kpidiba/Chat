@@ -14,7 +14,7 @@
 
     <div class="wrapper">
         <header>Login Form</header>
-        <form method="post" ->
+        <form method="post" >
             @csrf
             {{-- ERROR CHAMPS VIDES  --}}
                 <div class="error-css alert alert-warning alert-dismissible fade show" role="alert">
