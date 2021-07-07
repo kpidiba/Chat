@@ -52,7 +52,10 @@ Route::GET('/diconnect',[UserController::class,'disconnect'])->name('user.discon
 Route::GET('/file',[UserController::class,'file'])->name('user.file')->middleware(UserAuth::class);
 
 //page de chat
-Route::GET('/chat',[UserController::class,'chat'])->name('user.chat')->middleware(UserAuth::class);
+Route::GET('/chat',function(){
+    return "create just for his route";
+})->name('chat');
+Route::GET('/chat/{id}',[UserController::class,'chat'])->name('user.chat')->middleware(UserAuth::class);
 
 //Route pour verifier si les utilisateurs sont connecte
 Route::GET('/status',[UserController::class,'status'])->name('user.status');

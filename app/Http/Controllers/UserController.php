@@ -138,8 +138,8 @@ class UserController extends Controller
         return view('homes');
     }
 
-    public function chat(){
-        return view('chat');
+    public function chat($id){
+        return view('chat',['id'=>$id]);
     }
 
     public function disconnect(){
@@ -166,12 +166,12 @@ class UserController extends Controller
             $output .="Aucun Utilisateur n' est valable";
         }elseif(count($users) >0 ){
             foreach($users as $user){
-            $output .='<a href="'.route('user.chat').'">
+            $output .='<a href="'.route('chat').'/'.$user->idUser.'">
                 <div class="content">
                     <img src="'.$user->image.'" >
                     <div class="details">
                         <span>'.$user->nom.'  '.$user->prenom.'</span>
-                        <p>This is test message</p>
+                        <p>Content of last message</p>
                     </div>
                 </div>
                 <div class="status-dot"><i class="fa fa-circle"></i></div>
