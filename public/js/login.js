@@ -38,8 +38,8 @@ continueBtn.onclick = ()=>{
             }
         }
     }
-    let formData = new FormData(form);
-
+    //pour envoyer les donnees du formulaire via ajax a php
+    let formData = new FormData(form);//creation d 'un nouveau formulaire
     xhr.send(formData)    
     };
 

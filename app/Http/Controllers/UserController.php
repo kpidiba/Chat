@@ -49,8 +49,8 @@ class UserController extends Controller
             echo "Mot de passe doit contenir au moins 8 caracteres";
         }else if ($validator->fails()) {
             echo "Remplissez les champs";
-        }else if(filter_var($data['email'],FILTER_VALIDATE_EMAIL)){
-            echo $data['email']."n' est pas un email valide";
+        }else if(!filter_var($data['email'],FILTER_VALIDATE_EMAIL)){
+            echo $data['email']." n' est pas un email valide";
         }else if( !count($prenomver) == 0 ){
             echo "Changez Votre Prenom";
         }else if( !count($emailver) == 0 ){
@@ -94,6 +94,7 @@ class UserController extends Controller
 
         //recuperation des donnees de tous les utilisateurs
         $users = DB::table('utilisateurs')
+        ->where('email','!=',$data['email'])
         ->get();
 
         // Verification de l'existence de l 'utilisateur
@@ -125,7 +126,6 @@ class UserController extends Controller
                     'status' => 1,
                     'last_login' => \Carbon\Carbon::now()->toDateTimeString(),
                 ]);
-                // Route::view('homes',['users',$users]);
                 echo "success";
             }
 
@@ -152,7 +152,32 @@ class UserController extends Controller
             'last_login' => \Carbon\Carbon::now()->toDateTimeString(),
         ]);
         return redirect()->route('user.login');
+    }
 
-        
+    public function status(){
+        // Partie pour selectionner les amis de l' utilisateur
+        // $users=session('users');
+        $email = session('email');
+        $users = DB::table('utilisateurs')
+        ->where('email','!=',$email)
+        ->get();
+        $output="";
+        if(count($users)==0){
+            $output .="Aucun Utilisateur n' est valable";
+        }elseif(count($users) >0 ){
+            foreach($users as $user){
+            $output .='<a href="'.route('user.chat').'">
+                <div class="content">
+                    <img src="'.$user->image.'" >
+                    <div class="details">
+                        <span>'.$user->nom.'  '.$user->prenom.'</span>
+                        <p>This is test message</p>
+                    </div>
+                </div>
+                <div class="status-dot"><i class="fa fa-circle"></i></div>
+            </a>';
+            }
+        }
+        echo $output;
     }
 }

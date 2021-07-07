@@ -31,18 +31,7 @@
 
     <div class="friends">
         <div class="users-list">
-            @foreach ($users as $user)
-                <a href="">
-                <div class="content">
-                    <img src="user.png" alt="">
-                    <div class="details">
-                        <span>{{$user->nom}}</span>
-                        <p>This is test message</p>
-                    </div>
-                </div>
-                <div class="status-dot"><i class="fa fa-circle"></i></div>
-            </a>
-            @endforeach
+            
         </div>
 
     </div>

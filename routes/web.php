@@ -53,3 +53,6 @@ Route::GET('/file',[UserController::class,'file'])->name('user.file')->middlewar
 
 //page de chat
 Route::GET('/chat',[UserController::class,'chat'])->name('user.chat')->middleware(UserAuth::class);
+
+//Route pour verifier si les utilisateurs sont connecte
+Route::GET('/status',[UserController::class,'status'])->name('user.status');
