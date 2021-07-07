@@ -26,62 +26,23 @@
             </div>
             <div class="icon"><i class="fa fa-search"></i></div>
         </div>
-        <button class="btn  btn-add" id="button" ><i class="fa fa-plus">ADD FRIEND{{session('users')}}</i></button>
+        <button class="btn  btn-add" id="button" ><i class="fa fa-plus">ADD FRIEND</i></button>
     </div>
 
     <div class="friends">
         <div class="users-list">
-            <a href="">
+            @foreach ($users as $user)
+                <a href="">
                 <div class="content">
                     <img src="user.png" alt="">
                     <div class="details">
-                        <span>Coding David</span>
+                        <span>{{$user->nom}}</span>
                         <p>This is test message</p>
                     </div>
                 </div>
                 <div class="status-dot"><i class="fa fa-circle"></i></div>
-            </a><a href="">
-                <div class="content">
-                    <img src="user.png" alt="">
-                    <div class="details">
-                        <span>Coding David</span>
-                        <p>This is test message</p>
-                    </div>
-                </div>
-                <div class="status-dot"><i class="fa fa-circle"></i></div>
-            </a><a href="">
-                <div class="content">
-                    <img src="user.png" alt="">
-                    <div class="details">
-                        <span>Coding David</span>
-                        <p>This is test message</p>
-                    </div>
-                </div>
-                <div class="status-dot"><i class="fa fa-circle"></i></div>
-            </a><a href="">
-                <div class="content">
-                    <img src="user.png" alt="">
-                <div class="details">
-                        <span>Coding David</span>
-                        <p>This is test message</p>
-                    </div>
-                </div>
-                <div class="status-dot">
-                    <i class="fa fa-circle"></i>
-                </div>
             </a>
-            <a href="">
-                <div class="content">
-                    <img src="user.png" alt="">
-                <div class="details">
-                        <span>Coding David</span>
-                        <p>This is test message</p>
-                    </div>
-                </div>
-                <div class="status-dot">
-                    <i class="fa fa-circle"></i>
-                </div>
-            </a>
+            @endforeach
         </div>
 
     </div>
