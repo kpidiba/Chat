@@ -37,12 +37,14 @@
                     </div>
                 </div>
             </div>
-            <form action="" class="typing-area">
+            <form method="POST" class="typing-area">
                 <input type="text" name="receveir_id" value="{{ $friend[0]->idUser }}" hidden>
-                <input type="text" name="sender_id" hidden>
-                <input type="text" placeholder="Ecris un Message">
+                <input type="text" name="sender_id" value="{{ session('id') }}" hidden>
+                <input type="text" name="message" class="input-field" placeholder="Ecris un Message">
                 <button><i class="fa fa-send"></i></button>
             </form>
         </section>
     </div>
+    <script src="{{ asset('js/chat.js') }}" ></script>
+
 @endsection

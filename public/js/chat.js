@@ -2,19 +2,20 @@ const form = document.querySelector('.typing-area'),
 inputField = form.querySelector(".input-field"),
 sendBtn = form.querySelector("button");
 
-send = document.querySelector(".button");
 
 sendBtn.onclick = ()=>{
     //commencons Ajax
     let xhr = new XMLHttpRequest();
 xhr.open("POST","/chat",true);
+    alet("david");
     xhr.onload = ()=>{
         if(xhr.readyState === XMLHttpRequest.DONE){
             let data = xhr.response;
             if( data == "success"){
-                location.href="{{}}";
+                location.href="";
             }else{
-            // console.log(data);
+            console.log(data);
+            exit();
             }
         }
     }

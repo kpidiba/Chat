@@ -117,6 +117,9 @@ class UserController extends Controller
                 echo $data['email']."n' est pas un email valide";
             }else{
                 
+                foreach($user as $h){
+                    $request->session()->put('id',$h->idUser);
+                }
                 $request->session()->put('email',$data['email']);
                 $request->session()->put('users',$users);
                 //changer le status de l' utilisateur
@@ -139,6 +142,8 @@ class UserController extends Controller
     }
 
     public function chat($id){
+
+
         $user = DB::table('utilisateurs')
         ->where('idUser',$id)
         ->get();
@@ -182,5 +187,20 @@ class UserController extends Controller
             }
         }
         echo $output;
+    }
+
+    public function message(Request $request,$id){
+        $data = $request->input();
+        
+        if(!empty($data)){
+            DB::table('messages')->insert([
+                'sender_id' => $data['sender_id'],
+                'receveir_id' => $data['receveir_id'],
+                'msg' => $data['message'],
+                'file' => ' ',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+            ]);
+        }
     }
 }
