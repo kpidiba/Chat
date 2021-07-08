@@ -201,6 +201,10 @@ class UserController extends Controller
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
             ]);
+            echo "success"; 
+        }else{
+            echo "echec";
         }
+        
     }
 }
