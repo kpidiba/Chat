@@ -61,3 +61,6 @@ Route::POST('/chat/{id}',[UserController::class,'message'])->name('user.msg')->m
 
 //Route pour verifier si les utilisateurs sont connecte
 Route::GET('/status',[UserController::class,'status'])->name('user.status');
+
+//Route pour le chat /getChat
+Route::POST('/getChat',[UserController::class,'gChat'])->name('user.gChat');

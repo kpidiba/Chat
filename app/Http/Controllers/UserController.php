@@ -142,8 +142,6 @@ class UserController extends Controller
     }
 
     public function chat($id){
-
-
         $user = DB::table('utilisateurs')
         ->where('idUser',$id)
         ->get();
@@ -206,5 +204,36 @@ class UserController extends Controller
             echo "echec";
         }
         
+    }
+
+    public function gChat(Request $request){
+        $data = $request->input();
+        // print_r($data);
+            $output="";
+            $value= DB::table('messages')
+            ->orderBy('msg_id', 'desc')
+            // ->where('receveir_id',' = ',$data['receveir_id'],' and ','sender_id',' = ',$data['sender_id'])
+            // ->orwhere('receveir_id',' = ',$data['sender_id'],' and ','sender_id',' = ',$data['receveir_id'])
+            ->get();
+            if( count($value) > 0 ){
+                foreach($value as $v){
+                    if($v->sender_id == $data['sender_id']){//dans ce cas c' est un message de l' utilisateur courant
+                        $output.='<div class="chat outgoing">
+                                    <div class="details">
+                                        <p>'.$v->msg.'</p>
+                                    </div>
+                                </div>';
+                    }else{
+                        $output.='<div class="chat incoming">
+                        <img src="../user.png" alt="">
+                            <div class="details">
+                                <p>'.$v->msg.'</p>
+                            </div>
+                        </div>';
+                    }
+                }
+                echo $output;
+            }
+
     }
 }

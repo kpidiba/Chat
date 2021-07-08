@@ -25,17 +25,7 @@
                 </div>
             </header>
             <div class="chat-box">
-                <div class="chat outgoing">
-                    <div class="details">
-                        <p>wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</p>
-                    </div>
-                </div>
-                <div class="chat incoming">
-                    <img src="../{{ $friend[0]->image}}" alt="">
-                    <div class="details">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit eligendi laboriosam aut quam nihil, voluptas, consequatur expedita harum, culpa illum similique aspernatur ex porro rerum molestiae consequuntur ipsa autem voluptatem?</p>
-                    </div>
-                </div>
+                
             </div>
             <form method="POST" class="typing-area">
                 <input type="text" name="receveir_id" value="{{ $friend[0]->idUser }}" hidden>
