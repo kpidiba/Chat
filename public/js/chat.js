@@ -10,11 +10,12 @@ xhr.open("POST","/chat/{{ $friend[0]->idUser }}",true);
     xhr.onload = ()=>{
         if(xhr.readyState === XMLHttpRequest.DONE){
             let data = xhr.response;
-            alert(data);
             if( data == "success"){
+                alert(data);
                 location.href=URL;
             }else{
-                alert("echec");
+                alert(data);
+                location.href=URL;
             }
         }
     }

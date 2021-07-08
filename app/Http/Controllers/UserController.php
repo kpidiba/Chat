@@ -192,12 +192,12 @@ class UserController extends Controller
     public function message(Request $request,$id){
         $data = $request->input();
         
-        if(!empty($data)){
+        if(!empty($data['message'])){
             DB::table('messages')->insert([
                 'sender_id' => $data['sender_id'],
                 'receveir_id' => $data['receveir_id'],
                 'msg' => $data['message'],
-                'file' => ' ',
+                'file' => 'NULL',
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
             ]);
