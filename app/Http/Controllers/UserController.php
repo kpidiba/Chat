@@ -139,7 +139,10 @@ class UserController extends Controller
     }
 
     public function chat($id){
-        return view('chat',['id'=>$id]);
+        $user = DB::table('utilisateurs')
+        ->where('idUser',$id)
+        ->get();
+        return view('chat',['friend'=>$user]);
     }
 
     public function disconnect(){
