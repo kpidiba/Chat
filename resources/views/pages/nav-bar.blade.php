@@ -34,7 +34,7 @@
                     </div>
                     <div class="menu">
                         <ul>
-                            <li><i class="fa fa-user"></i><a href=""> <span> Editer Profile</span></a></li>
+                            <li><i class="fa fa-user"></i><a href=""><a href="{{ route('user.setting') }}"><span> Editer Profile</span></a></li>
                                 <input type="submit" hidden>
                                 <li class="line"><i class="fa fa-sign-out"></i><a href="{{ route('user.disconnect') }}"><span> Deconnecter</span></a></li>
                         </ul>

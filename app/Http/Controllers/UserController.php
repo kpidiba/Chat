@@ -162,7 +162,6 @@ class UserController extends Controller
 
     public function status(){
         // Partie pour selectionner les amis de l' utilisateur
-        // $users=session('users');
         $email = session('email');
         $users = DB::table('utilisateurs')
         ->where('email','!=',$email)
@@ -187,20 +186,22 @@ class UserController extends Controller
                 ->first();
 
                 if(empty($bobo->msg) && empty($bobo->sender_id)){
-                    $resultat ="Aucun message pour l 'instant";
+                    $resultat ="Aucun message pour l'instant hhh";
                 }else{
                     $resultat =$bobo->msg;
                 }
                 
                 // // pour limiter la taille du message
-                strlen($resultat) > 28 ? $msg = substr($resultat,0,28):$msg = $resultat;
+                strlen($resultat) > 28 ? $msg = substr($resultat,0,28)."...":$msg = $resultat;
                 $ver = session('id');
+                
                 //pour a qui appartient le dernier message
                 if( !empty($bobo->sender_id) && $ver == $bobo->sender_id ){
                     $you="TOI : ";
                 }else{
                     $you="";
                 }
+                
                 $output .='<a href="'.route('chat').'/'.$user->idUser.'">
                     <div class="content">
                         <img src="'.$user->image.'" >
@@ -268,12 +269,16 @@ class UserController extends Controller
                                 </div>
                             </div>';
                         }
-
                     }
                 
             }
             echo $output;
-            
+        
+    }
 
+    public function setting(){
+        //recuperation des informations de l'utilisateur
+        
+        return view('setting');
     }
 }
