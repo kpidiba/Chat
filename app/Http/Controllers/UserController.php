@@ -168,23 +168,38 @@ class UserController extends Controller
         ->where('email','!=',$email)
         ->get();
         $output="";
-        if(count($users)==0){
-            $output .="Aucun Utilisateur n' est valable";
-        }elseif(count($users) >0 ){
+        if( count($users) == 0 ){
+            $output .="<p>Aucun Utilisateur n' est valable</p>";
+        }elseif(count($users) > 0 ){
             foreach($users as $user){
-            $output .='<a href="'.route('chat').'/'.$user->idUser.'">
-                <div class="content">
-                    <img src="'.$user->image.'" >
-                    <div class="details">
-                        <span>'.$user->nom.'  '.$user->prenom.'</span>
-                        <p>Content of last message</p>
-                    </div>
-                </div>
-                <div class="status-dot"><i class="fa fa-circle"></i></div>
-            </a>';
+                
+                $bobo = DB::table('messages')
+                ->orderBy('msg_id', 'desc')
+                ->where('receveir_id',$user->idUser)
+                ->orwhere('sender_id',$user->idUser)
+                ->Where(function($query)
+                {
+                    $query->where('receveir_id',session('id'))
+                    ->orwhere('sender_id',session('id'));
+                })
+                ->first();
+                // dd($bobo);
+                
+                
+                // dd($sql);
+                // $output .='<a href="'.route('chat').'/'.$user->idUser.'">
+                //     <div class="content">
+                //         <img src="'.$user->image.'" >
+                //         <div class="details">
+                //             <span>'.$user->nom.'  '.$user->prenom.'</span>
+                //             <p>Content of last message</p>
+                //         </div>
+                //     </div>
+                //     <div class="status-dot"><i class="fa fa-circle"></i></div>
+                // </a>';
             }
         }
-        echo $output;
+        // echo $output;
     }
 
     public function message(Request $request,$id){
