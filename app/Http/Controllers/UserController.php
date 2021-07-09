@@ -173,6 +173,8 @@ class UserController extends Controller
         }elseif(count($users) > 0 ){
             foreach($users as $user){
                 
+                //pour recuperer le dernier message
+                
                 $bobo = DB::table('messages')
                 ->orderBy('msg_id', 'desc')
                 ->where('receveir_id',$user->idUser)
@@ -183,23 +185,32 @@ class UserController extends Controller
                     ->orwhere('sender_id',session('id'));
                 })
                 ->first();
-                // dd($bobo);
+
+                if(empty($bobo->msg)){
+                    $resultat ="Aucun message pour l 'instant";
+                }else{
+                    $resultat =$bobo->msg;
+                }
                 
+                // pour limiter la taille du message
+                strlen($resultat) > 28 ? $msg = substr($resultat,0,28):$msg = $resultat;
                 
-                // dd($sql);
-                // $output .='<a href="'.route('chat').'/'.$user->idUser.'">
-                //     <div class="content">
-                //         <img src="'.$user->image.'" >
-                //         <div class="details">
-                //             <span>'.$user->nom.'  '.$user->prenom.'</span>
-                //             <p>Content of last message</p>
-                //         </div>
-                //     </div>
-                //     <div class="status-dot"><i class="fa fa-circle"></i></div>
-                // </a>';
+                //pour a qui appartient le dernier message
+                (session('id') == $bobo->sender_id)? $you=" you : ":$you="";
+
+                $output .='<a href="'.route('chat').'/'.$user->idUser.'">
+                    <div class="content">
+                        <img src="'.$user->image.'" >
+                        <div class="details">
+                            <span>'.$user->nom.'  '.$user->prenom.'</span>
+                            <p>'.$you.''.$msg.'</p>
+                        </div>
+                    </div>
+                    <div class="status-dot"><i class="fa fa-circle"></i></div>
+                </a>';
             }
         }
-        // echo $output;
+        echo $output;
     }
 
     public function message(Request $request,$id){
