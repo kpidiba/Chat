@@ -31,13 +31,12 @@ body{
 }
 
 .chat_profile{
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 
 #mca_side_bar .chat_profile{
     height: 15%;
     padding-top: 10px;
-    padding-bottom: 100px;
 }
 
 .chat_profile img{
@@ -59,7 +58,7 @@ body{
 }
 
 #mca_side_bar .chat_menu{
-    height:75%;
+    height:65%;
 }
 
 .chat_menu ul{
@@ -130,7 +129,7 @@ body{
     content:'';
     position:absolute;
     top: -5px;
-    right:98px;
+    right:140px;
     width:20px;
     height: 20px;
     background: #fff;
@@ -144,7 +143,7 @@ body{
     position:absolute;
     top:80px;
     left:40px;
-    width:130px;
+    width:170px;
     list-style: none;
     padding-top:10px;
     background: #fff;
@@ -152,6 +151,7 @@ body{
     border-radius:15px;
     transition: 0.5s ;
 }
+
 
 #mca_side_bar .menu ul li{
     cursor: pointer;
@@ -167,6 +167,7 @@ body{
     width: 100px;
     max-width: 10px;
     padding-left:10px;
+    text-decoration: none;
 }
 
 #mca_side_bar .menu ul li i{
@@ -184,10 +185,14 @@ body{
     margin-left:10px;
 }
 
-#mca_side_bar .menu ul li a{
-    text-decoration: none; 
-}
-
 #mca_side_bar .menu ul .line{
     border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+.menu .user-id{
+    margin-right: 30px;
+    color:rgba(107, 104, 61, 0.808);
+    width: 100px;
+    max-width: 10px;
+    padding-left:10px;
 }

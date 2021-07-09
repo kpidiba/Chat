@@ -34,7 +34,8 @@
                     </div>
                     <div class="menu">
                         <ul>
-                            <li><i class="fa fa-user"></i><a href=""><a href="{{ route('user.setting') }}"><span> Editer Profile</span></a></li>
+                                <li class="user-id"><span> {{ session('email') }} </span></li>
+                                <li><i class="fa fa-user"></i><a href="{{ route('user.setting') }}"><span> Editer Profile</span></a></li>
                                 <input type="submit" hidden>
                                 <li class="line"><i class="fa fa-sign-out"></i><a href="{{ route('user.disconnect') }}"><span> Deconnecter</span></a></li>
                         </ul>
@@ -46,10 +47,6 @@
                                 <span class="icon-button__badge">2</span>
                             </li>
                             <li ><i class="fa fa-bell"></i></li>
-                            <li ><i class="fa fa-users"></i></li>
-                            <li ><i class="fa fa-google"></i></li>
-                            
-                            <li ><i class="fa fa-envelope"></i></li>
                         </ul>
                     </div>
                     <div class="chat_bar">
