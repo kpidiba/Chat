@@ -278,7 +278,9 @@ class UserController extends Controller
 
     public function setting(){
         //recuperation des informations de l'utilisateur
-        
-        return view('setting');
+        $user = DB::table('utilisateurs')
+        ->where('idUser',session('id'))
+        ->get();
+        return view('setting',['user'=>$user]);
     }
 }
