@@ -208,40 +208,43 @@ class UserController extends Controller
 
     public function gChat(Request $request){
         $data = $request->input();
-        // print_r($data);
+
             $output="";
             $value1= DB::table('messages')
-            ->orderBy('msg_id', 'desc')
+            ->orderBy('msg_id', 'asc')
             ->where('receveir_id',$data['receveir_id'])
             ->where('sender_id',$data['sender_id'])
-            ->get();
-            
-            $value2 = DB::table('messages')
-            ->orderBy('msg_id', 'desc')
-            ->where('receveir_id',$data['sender_id'])
-            ->where('sender_id',$data['receveir_id'])
+            ->orWhere(function($query)
+            {
+                $query->where('receveir_id',$_POST['sender_id'])
+                        ->where('sender_id',$_POST['receveir_id']);
+            })
             ->get();
 
-            if( count($value1) > 0 || count($value2) > 0 ){
+            if( count($value1) > 0){
                 // Partie pour les messages envoyes
-                foreach($value1 as $v){
-                        $output.='<div class="chat outgoing">
-                                    <div class="details">
-                                        <p>'.$v->msg.'</p>
-                                    </div>
-                                </div>';
-                }
-                //partie pour les messafes recus
-                foreach ($value2 as $v){
-                    $output.='<div class="chat incoming">
-                        <img src="../user.png" alt="">
-                            <div class="details">
-                                <p>'.$v->msg.'</p>
-                            </div>
-                        </div>';
-                }
-                echo $output;
+                    foreach($value1 as $v){
+                        if($v->sender_id == $_POST['sender_id'] ){
+                            $output.='<div class="chat outgoing">
+                                        <div class="details">
+                                            <p>'.$v->msg.'</p>
+                                        </div>
+                                    </div>';
+                        }else{
+                            // partie pour les messafes recus
+                            $output.='<div class="chat incoming">
+                            <img src="../user.png" alt="">
+                                <div class="details">
+                                    <p>'.$v->msg.'</p>
+                                </div>
+                            </div>';
+                        }
+
+                    }
+                
             }
+            echo $output;
+            
 
     }
 }
