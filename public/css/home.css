@@ -227,7 +227,6 @@ users-list a .status-dot{
 }
 
 .content{
-    /* width:425px; */
     border-radius:3px;
 }
 
@@ -237,9 +236,8 @@ users-list a .status-dot{
 
 .content .tab_content ul{
     display: flex;
-    background:#dae8f1;
+    background:#f4fafe;
     border-radius: 3px;
-
 }
 
 .content .tab_content ul li{
@@ -249,11 +247,73 @@ users-list a .status-dot{
     border-radius: 3px;
 }
 
+.content .tab_content ul li:hover,
+.content .tab_content ul li.active{
+    background-color: #e4edf5;
+} 
 
+.inbox{
+    height:632px;
+}
+
+.inbox li .all{
+    display:flex;
+    align-items: center;
+    padding:10px 20px;
+    border-bottom:1px solid #e4edf5;
+    cursor:pointer;
+}
+
+.inbox li .all:hover{
+    background-color:#e4edf5 ;
+}
+
+.inbox li:last-child .all{
+    border-bottom:0;
+}
+
+.inbox li .all img{
+    width: 50px;
+    height:50px;
+}
+
+
+
+.inbox .li_right .message{
+    margin:0 20px; 
+    display:flex;
+}
+
+.inbox .li_right .message .time_status{
+    display:flex;
+    align-items:flex-end;
+}
+
+.inbox .li_right .message .title{
+    margin-right: 300px;
+    font-weight: bold;
+    margin-bottom:5px; 
+}
+
+.inbox .li_right .message .sub_title{
+    font-size:12px;
+    line-height: 18px;
+}
+
+.inbox .all .time{
+    padding-left: 20px;
+    color:#ccc;
+    font-size:12px;
+    text-align:center;
+}
+
+.inbox .all .time .status{
+    
+}
 .propo-center{
-    background-color: red;
+    /* background-color: red; */
 }
 
 .inv-center{
-    background-color: rgb(0, 255, 0);
+    /* background-color: rgb(0, 255, 0); */
 }

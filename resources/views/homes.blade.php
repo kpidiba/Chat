@@ -46,7 +46,7 @@
             <div class="tab_content">
                 <ul style="list-style: none;">
                     <li  data-li="all" class="active inv-center" >Invitations</li>
-                    <li  data-li="unread" class="active propo-center">Propositions</li>
+                    <li  data-li="unread" class=" propo-center">Propositions</li>
                 </ul>
             </div>
             
@@ -60,10 +60,9 @@
                             <div class="li_right">
                                 <div class="message">
                                     <div class="title">Alex John</div>
-                                    <div class="sub_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius impedit fuga harum delectus odio iusto quas repellendus voluptate enim hic amet vero, culpa numquam? Perspiciatis architecto quia soluta quas animi.</div>
                                     <div class="time_status">
+                                        <button type="button" class="btn btn-info">Inviter</button>
                                         <div class="time">10M</div>
-                                        <div class="status"></div>
                                     </div>
                                 </div>
                             </div>
