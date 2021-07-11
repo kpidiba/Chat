@@ -150,7 +150,7 @@ class UserController extends Controller
 
     public function disconnect(){
         $a=Session::get('email');
-        Session::forget('email');
+        Session::flush();
         DB::table('utilisateurs')
         ->where('email', $a)
         ->update([

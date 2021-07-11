@@ -161,6 +161,8 @@ users-list a .status-dot{
     color:#67676a;
 }
 
+/* Add Friend CSS */
+
 .btn-add{
     border-left:  1px solid #269BD0;
     width: 200px;
@@ -183,11 +185,14 @@ users-list a .status-dot{
     transition: all 0s ease-out;
 }
 
+/* popup css */
 .popup{
+    background:#0058ff;
+    color:#4d5465;
     display:none;
-    background:rgba(0,0,0,0.6);
     width:100%;
     height:100%;
+    box-sizing: border-box;
     position:absolute;
     top:0;
     justify-content: center;
@@ -195,7 +200,7 @@ users-list a .status-dot{
 }
 
 .popup-content{
-    height: 650px;
+    height: 600px;
     width:700px;
     background-color: #fff;
     padding:20px;
@@ -213,4 +218,42 @@ users-list a .status-dot{
     border-radius: 50%;
     box-shadow: 6px 6px 29px -4px rgba(0, 0,0,0.75);
     cursor: pointer;
+}
+
+.popup img{
+    width: 50px;
+    height:50px;
+    border-radius: 50px;
+}
+
+.content{
+    /* width:425px; */
+    border-radius:3px;
+}
+
+.content .tab_content{
+    padding:20px;
+}
+
+.content .tab_content ul{
+    display: flex;
+    background:#dae8f1;
+    border-radius: 3px;
+
+}
+
+.content .tab_content ul li{
+    padding:10px 120px;
+    text-align:center;
+    cursor:pointer;
+    border-radius: 3px;
+}
+
+
+.propo-center{
+    background-color: red;
+}
+
+.inv-center{
+    background-color: rgb(0, 255, 0);
 }

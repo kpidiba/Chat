@@ -16,12 +16,12 @@ use App\Http\Middleware\UserAuth;
 */
 
 // Route::GET('/', function () {
-//     return view('welcome');
+    // return view('welcome');
 // });
 
-Auth::routes();
+// Auth::routes();
 
-Route::GET('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::GET('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::GET('/man',function(){
     dd('hello world');
