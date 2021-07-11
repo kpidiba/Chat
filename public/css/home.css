@@ -252,9 +252,6 @@ users-list a .status-dot{
     background-color: #e4edf5;
 } 
 
-.inbox{
-    height:632px;
-}
 
 .inbox li .all{
     display:flex;
