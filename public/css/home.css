@@ -102,14 +102,14 @@ users-list a .status-dot{
 }
 
 /* We use it to show offline status in php */
+.status-dot .offline{
+    color:#ccc;
+}
 
 .status-dot{
     padding:20px 20px;
 }
 
-.status-dot .offline{
-    color:#ccc;
-}
 
 .users-list a{
     text-decoration: none;
