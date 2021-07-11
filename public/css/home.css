@@ -6,7 +6,7 @@
 }
 
 body{
-    background:#644bff;
+    background:#f0f0f3;
 }
 
 .wrapper{
@@ -97,12 +97,17 @@ body{
 
 users-list a .status-dot{
     font-size:12px;
-    height:10px;
-    width:10px;
+    padding:20px 20px;
     color:#468669;
 }
+
 /* We use it to show offline status in php */
-users-list a .status-dot.offline{
+
+.status-dot{
+    padding:20px 20px;
+}
+
+.status-dot .offline{
     color:#ccc;
 }
 

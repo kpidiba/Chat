@@ -201,6 +201,12 @@ class UserController extends Controller
                 }else{
                     $you="";
                 }
+
+                //verifier si l' utilisateur est connecte ou non
+                $offline ="";
+                if( $user->status == 0 ){
+                    $offline ="offline";
+                }
                 
                 $output .='<a href="'.route('chat').'/'.$user->idUser.'">
                     <div class="content">
@@ -210,7 +216,7 @@ class UserController extends Controller
                             <p>'.$you.''.$msg.'</p>
                         </div>
                     </div>
-                    <div class="status-dot"><i class="fa fa-circle"></i></div>
+                    <div class="status-dot " ><i class="fa fa-circle '.$offline.'"></i></div>
                 </a>';
             }
         }

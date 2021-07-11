@@ -49,9 +49,6 @@
                             <li ><i class="fa fa-bell"></i></li>
                         </ul>
                     </div>
-                    <div class="chat_bar">
-                        <i class="fa fa-bars"></i>
-                    </div>
                 </section>
             </div>
         </div>    
