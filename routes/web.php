@@ -23,10 +23,6 @@ use App\Http\Middleware\UserAuth;
 
 // Route::GET('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::GET('/man',function(){
-    dd('hello world');
-})->middleware(UserAuth::class);
-
 // Enregistrement de l' utilisateur
 Route::GET('/register',[UserController::class,'register'])->name('user.register');
 Route::POST('/register',[UserController::class,'store'])->name('user.store');
@@ -34,6 +30,7 @@ Route::POST('/register',[UserController::class,'store'])->name('user.store');
 Route::POST('/registers',function(){
     return "man with a mission";
 });
+
 // Route::GET('/register',function(){
 //     return "";
 // });
@@ -50,6 +47,7 @@ Route::GET('/diconnect',[UserController::class,'disconnect'])->name('user.discon
 
 //page pour changer la photo de l' utilisateur
 Route::GET('/file',[UserController::class,'file'])->name('user.file')->middleware(UserAuth::class);
+Route::POST('/file',[UserController::class,'filechange'])->name('user.filechange')->middleware(UserAuth::class);
 
 //page de chat
 Route::GET('/chat',function(){

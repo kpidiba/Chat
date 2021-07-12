@@ -20,6 +20,38 @@ class UserController extends Controller
     public function file(){
         return view('file');
     }
+
+    public function filechange(Request $request){
+        $data = $request->input();
+        if($_FILES['image']['name'] != ""){
+            $img_name = $_FILES['image']['name'];
+            // $img_type = $_FILES['image']['type'];
+            $tmp_name = $_FILES['image']['tmp_name'];
+
+            //recuperation de l' extension
+            $img_explode = explode('.',$img_name);
+            $img_ext = end($img_explode);
+            $extensions = ['png','jpeg','jpg'];
+            //verification des extensions
+            if(in_array($img_ext,$extensions) == true ){
+                $time = time();
+                $new_name = $time.$img_name;
+                move_uploaded_file($tmp_name,'IMAGE/'.$new_name);
+                DB::table('utilisateurs')
+                ->where('email', session('email'))
+                ->update([
+                    'image' => $new_name,
+                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+                ]);
+                Session::put('image', $new_name);
+            }else{
+                return redirect()->route('user.file')
+                ->withInput() ->with('failed',"extension doit etre png ,jpg ou jpeg ");
+            }
+            return redirect()->route('user.setting');
+        }
+        return redirect()->route('user.setting');
+    }
     
     public function store(Request $request){
         //recuperation des donnees des differents champs
@@ -119,6 +151,7 @@ class UserController extends Controller
                 
                 foreach($user as $h){
                     $request->session()->put('id',$h->idUser);
+                    $request->session()->put('image',$h->image);
                 }
                 $request->session()->put('email',$data['email']);
                 $request->session()->put('users',$users);
