@@ -13,7 +13,11 @@
         <section class="chat-area">
             <header>
                 <a href="{{ route('user.home') }}" class="back-icon"><i class="fa fa-arrow-left"></i></a>
-                <img src="../{{ $friend[0]->image }}" alt="">
+                @if ($friend[0]->image =="user.png")
+                <img src="../user.png" alt="">
+                @else
+                    <img src="../IMAGE/{{ $friend[0]->image }}" alt="">
+                @endif               
                 <div class="details">
                     <span>{{ $friend[0]->nom }} {{ $friend[0]->prenom }}</span>
                     @if ($friend[0]->status == 1)

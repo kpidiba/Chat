@@ -46,7 +46,8 @@ class UserController extends Controller
                 Session::put('image', $new_name);
             }else{
                 return redirect()->route('user.file')
-                ->withInput() ->with('failed',"extension doit etre png ,jpg ou jpeg ");
+                ->withInput() 
+                ->with('failed',"extension doit etre png ,jpg ou jpeg ");
             }
             return redirect()->route('user.setting');
         }
@@ -240,10 +241,15 @@ class UserController extends Controller
                 if( $user->status == 0 ){
                     $offline ="offline";
                 }
-                
+                //veririfer si l'image est egale a l'image par defaut
+                if($user->image =="user.png"){
+                    $image = "user.png";
+                }else{
+                    $image = "IMAGE/$user->image";
+                }
                 $output .='<a href="'.route('chat').'/'.$user->idUser.'">
                     <div class="content">
-                        <img src="'.$user->image.'" >
+                        <img src="'.$image.'" >
                         <div class="details">
                             <span>'.$user->nom.'  '.$user->prenom.'</span>
                             <p>'.$you.''.$msg.'</p>
@@ -276,6 +282,8 @@ class UserController extends Controller
     }
 
     public function gChat(Request $request){
+
+        //envoie des messages
         $data = $request->input();
 
             $output="";
