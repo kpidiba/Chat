@@ -45,8 +45,8 @@
             
             <div class="tab_content">
                 <ul style="list-style: none;">
-                    <li  data-li="all" class="active inv-center" >Invitations</li>
-                    <li  data-li="unread" class=" propo-center">Propositions</li>
+                    <li  data-li="all" class="active inv-center" >Propositions</li>
+                    <li  data-li="unread" class=" propo-center">Invitations</li>
                 </ul>
             </div>
             
@@ -61,8 +61,7 @@
                                 <div class="message">
                                     <div class="title">Alex John</div>
                                     <div class="time_status">
-                                        <button type="button" class="btn btn-info">Inviter</button>
-                                        <div class="time">10M</div>
+                                        <button type="button" class="btn btn-success">Inviter</button>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +75,8 @@
                             <div class="li_right">
                                 <div class="message">
                                     <div class="title">Alex John</div>
-                                    <div class="sub_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius impedit fuga harum delectus odio iusto quas repellendus voluptate enim hic amet vero, culpa numquam? Perspiciatis architecto quia soluta quas animi.</div>
+                                    <button type="button" class="btn btn-success">Accepter</button>
+                                    <button type="button" class="btn btn-secondary">Refuser</button>
                                     <div class="time_status">
                                         <div class="time">10M</div>
                                         <div class="status"></div>

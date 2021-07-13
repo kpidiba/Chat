@@ -23,7 +23,8 @@ body{
 #mca_side_bar{
     position: fixed;
     height: 100%;
-    width:80px;
+    padding-right: 50px;
+    width:85px;
     background: #669cfe;
     left: 0;
     top: 0;
@@ -40,9 +41,9 @@ body{
 }
 
 .chat_profile img{
-    height: 50px;
+    height: 57px;
     object-fit: cover;
-    width: 50px;
+    width: 57px;
     border-radius: 50%;
     background: #f3f6fd;
     padding: 3px;

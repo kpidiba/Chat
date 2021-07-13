@@ -53,6 +53,7 @@
                                 <span class="icon-button__badge">2</span>
                             </li>
                             <li ><i class="fa fa-bell"></i></li>
+                            <li ><i class="fa fa-play"></i></li>
                         </ul>
                     </div>
                 </section>

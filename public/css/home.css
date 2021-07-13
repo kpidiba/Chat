@@ -151,9 +151,9 @@ users-list a .status-dot{
     align-items: center;
 }
 .users-list a .content img{
-    height: 40px;
+    height: 60px;
     object-fit: cover;
-    width:40px; 
+    width:60px; 
     border-radius:50%;  
 }
 
@@ -279,6 +279,11 @@ users-list a .status-dot{
 .inbox .li_right .message{
     margin:0 20px; 
     display:flex;
+}
+
+.inbox .li_right .message button{
+    height:46px;
+    margin-right: 10px;
 }
 
 .inbox .li_right .message .time_status{
