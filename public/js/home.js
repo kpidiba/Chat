@@ -31,3 +31,34 @@ setInterval(()=>{
     }
     xhr.send();
 },700);
+
+var lib_tabs = document.querySelectorAll(".tab_content ul li");
+var all = document.querySelectorAll(".all");
+var unread = document.querySelectorAll(".all.unread");
+
+
+lib_tabs.forEach((tab)=>{
+    tab.addEventListener("click",()=>{
+        lib_tabs.forEach((tab)=>{
+            tab.classList.remove("active");
+        })
+
+        tab.classList.add('active');
+        var litabvalue = tab.getAttribute("data-li");
+        
+        all.forEach(item=>{
+            item.style.display="none";
+        })
+
+        if(litabvalue == "all"){
+            all.forEach(item=>{
+                item.style.display = "flex";
+            })
+        }else if(litabvalue == "unread"){
+            unread.forEach(item=>{
+                item.style.display = "flex";
+            })
+        }
+
+    })
+})

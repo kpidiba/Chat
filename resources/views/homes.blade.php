@@ -42,7 +42,6 @@
     <div class="popup-content">
         <i class="fa fa-close close"></i>
         <div class="content">
-            
             <div class="tab_content">
                 <ul style="list-style: none;">
                     <li  data-li="all" class="active inv-center" >Propositions</li>
@@ -53,7 +52,7 @@
             <div class="inbox">
                 <ul style="list-style: none;">
                     <li>
-                        <div class="all">
+                        <div class="all ">
                             <div class="li_left">
                                 <img src="user.png" alt="friend image">
                             </div>
@@ -67,20 +66,18 @@
                             </div>
                         </div>
                     </li>
+                    
                     <li>
                         <div class="all unread">
                             <div class="li_left">
-                                <img src="" alt="friend image">
+                                <img src="user.png" alt="friend image">
                             </div>
                             <div class="li_right">
                                 <div class="message">
                                     <div class="title">Alex John</div>
                                     <button type="button" class="btn btn-success">Accepter</button>
                                     <button type="button" class="btn btn-secondary">Refuser</button>
-                                    <div class="time_status">
-                                        <div class="time">10M</div>
-                                        <div class="status"></div>
-                                    </div>
+                                    <div class="time">10M</div>
                                 </div>
                             </div>
                         </div>
