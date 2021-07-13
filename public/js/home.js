@@ -33,9 +33,13 @@ setInterval(()=>{
 },700);
 
 var lib_tabs = document.querySelectorAll(".tab_content ul li");
+var prop = document.querySelectorAll(".all.prop");
 var all = document.querySelectorAll(".all");
 var unread = document.querySelectorAll(".all.unread");
 
+unread.forEach(item=>{
+    item.style.display = "none";
+})
 
 lib_tabs.forEach((tab)=>{
     tab.addEventListener("click",()=>{
@@ -50,8 +54,8 @@ lib_tabs.forEach((tab)=>{
             item.style.display="none";
         })
 
-        if(litabvalue == "all"){
-            all.forEach(item=>{
+        if(litabvalue == "prop"){
+            prop.forEach(item=>{
                 item.style.display = "flex";
             })
         }else if(litabvalue == "unread"){

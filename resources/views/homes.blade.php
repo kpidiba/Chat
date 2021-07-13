@@ -44,7 +44,7 @@
         <div class="content">
             <div class="tab_content">
                 <ul style="list-style: none;">
-                    <li  data-li="all" class="active inv-center" >Propositions</li>
+                    <li  data-li="prop" class="active inv-center" >Propositions</li>
                     <li  data-li="unread" class=" propo-center">Invitations</li>
                 </ul>
             </div>
@@ -52,7 +52,7 @@
             <div class="inbox">
                 <ul style="list-style: none;">
                     <li>
-                        <div class="all ">
+                        <div class="all prop">
                             <div class="li_left">
                                 <img src="user.png" alt="friend image">
                             </div>
