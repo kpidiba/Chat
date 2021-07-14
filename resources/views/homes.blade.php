@@ -59,10 +59,8 @@
                     </li>
                     
                     <li>
-                        <div class="zll unread">
-                            <div id="listv" class="all">
+                        <div id="listv" class="zll unread">
                             
-                            </div>
                         </div>
                         
                     </li>

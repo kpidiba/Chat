@@ -39,11 +39,11 @@ lib_tabs.forEach((tab)=>{
 
         if(litabvalue == "prop"){
             prop.forEach(item=>{
-                item.style.display = "flex";
+                item.style.display = "initial";
             })
         }else if(litabvalue == "unread"){
             unread.forEach(item=>{
-                item.style.display = "flex";
+                item.style.display = "initial";
             })
         }
 
