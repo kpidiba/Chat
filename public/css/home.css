@@ -292,8 +292,11 @@ users-list a .status-dot{
 }
 
 .inbox .li_right .message .title{
+    background-color: #269BD0;
     margin-right: 300px;
     font-weight: bold;
+    font-size:12px;
+    width:100px;
     margin-bottom:5px; 
 }
 

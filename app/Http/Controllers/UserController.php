@@ -340,37 +340,29 @@ class UserController extends Controller
         ->where('utilisateurs.idUser', '!=', 'invitations.idIrec')
         ->where('utilisateurs.idUser', '!=', 'invitations.idIsend')
         ->where('idUser','!=',session('id'))
-        ->select('utilisateurs.nom', 'utilisateurs.prenom')
+        ->select('utilisateurs.nom', 'utilisateurs.prenom','utilisateurs.image')
         ->get();
 
         
-        echo '
-        <div  class="all">
-                <div class="li_left">
-                <img src="user.png" alt="friend image">
-            </div>
-            <div class="li_right">
-                <div class="message">
-                    <div class="title">Alex John</div>
-                    <div class="time_status">
-                        <button type="button" class="btn btn-success">Inviter</button>
+        foreach($propo as $value){
+            $resultat=$value->nom.' '.$value->prenom.'jojosbizarre';
+            strlen($resultat) > 28 ? $msg = substr($resultat,0,22)."...":$msg = $resultat;
+            echo '
+                <div  class="all">
+                        <div class="li_left">
+                        <img src="IMAGE/'.$value->image.'" alt="friend image">
                     </div>
-                </div>
-            </div>            
-        </div>
-        <div  class="all">
-        <div class="li_left">
-        <img src="user.png" alt="friend image">
-    </div>
-    <div class="li_right">
-        <div class="message">
-            <div class="title">Alex John</div>
-            <div class="time_status">
-                <button type="button" class="btn btn-success">Inviter</button>
-            </div>
-        </div>
-    </div>            
-        </div>';
+                    <div class="li_right">
+                        <div class="message">
+                            <div class="title">'.$msg.'</div>
+                            <div class="time_status">
+                                <button type="button" class="btn btn-success">Inviter</button>
+                            </div>
+                        </div>
+                    </div>            
+                </div>';
+        }
+        
     }
 
     public function listInv(){
