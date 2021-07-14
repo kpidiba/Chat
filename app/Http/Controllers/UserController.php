@@ -356,7 +356,7 @@ class UserController extends Controller
                         <div class="message">
                             <div  class="title">'.$msg.'</div>
                             <div class="time_status">
-                                <button id="spacebtn" type="button" class="btn btn-success">Inviter</button>
+                                <a id="spacebtn" type="button" class="btn btn-success">Inviter</a>
                             </div>
                         </div>
                     </div>            
@@ -390,8 +390,8 @@ class UserController extends Controller
             <div  class="li_right">
                 <div class="message">
                     <div class="title">Alex John</div>
-                    <button type="button" class="btn btn-success">Accepter</button>
-                    <button type="button" class="btn btn-secondary">Refuser</button>
+                    <a type="button" class="btn btn-success">Accepter</a>
+                    <a type="button" class="btn btn-secondary">Refuser</a>
                     <div class="time">10M</div>
                 </div>
             </div>

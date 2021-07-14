@@ -281,8 +281,13 @@ users-list a .status-dot{
     display:flex;
 }
 
-.inbox .li_right .message button{
-    height:46px;
+/* .inbox .li_right .message div a{
+    padding-top:10px;
+    padding-bottom:10px;
+} */
+.inbox .li_right .message a{
+    padding-top:10px;
+    padding-bottom:10px;
     margin-right: 10px;
 }
 
@@ -292,7 +297,8 @@ users-list a .status-dot{
 }
 
 #spacebtn{
-    padding:0px  30px;
+    padding-top:10px;
+    padding-bottom:10px;
     margin-left: 90px;
 }
 
