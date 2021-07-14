@@ -65,3 +65,7 @@ Route::POST('/getChat',[UserController::class,'gChat'])->name('user.gChat');
 
 //Les Parametres du compte
 Route::GET('/setting',[UserController::class,'setting'])->name('user.setting');
+
+//liste des invitations et liste des propositions
+Route::GET('/propo',[UserController::class,'listPropo'])->name('user.propo');
+// Route::GET('/status',[UserController::class,'status'])->name('user.status');

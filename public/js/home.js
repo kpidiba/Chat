@@ -14,24 +14,7 @@ document.querySelector("body").addEventListener("click",function(){
     document.querySelector(".menu").style.display="none";
 })
 
-usersList = document.querySelector(".users-list");
-
-setInterval(()=>{
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET","/status",true);
-    xhr.onload = ()=>{
-        if(xhr.readyState === XMLHttpRequest.DONE){
-            
-            if(xhr.status === 200){
-            let data = xhr.response;
-            console.log(data);
-            usersList.innerHTML=data;
-            }
-        }
-    }
-    xhr.send();
-},700);
-
+//dynamisation du popup
 var lib_tabs = document.querySelectorAll(".tab_content ul li");
 var prop = document.querySelectorAll(".all.prop");
 var all = document.querySelectorAll(".all");
@@ -66,3 +49,39 @@ lib_tabs.forEach((tab)=>{
 
     })
 })
+
+
+// faire la liste
+list = document.querySelector("#friends");
+usersList = document.querySelector(".users-list");
+
+setInterval(()=>{
+    //partie liste des utilisateurs
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET","/status",true);
+    xhr.onload = ()=>{
+        if(xhr.readyState === XMLHttpRequest.DONE){
+            
+            if(xhr.status === 200){
+                let data = xhr.response;
+                usersList.innerHTML=data;
+            }
+        }
+    }
+    xhr.send();
+
+    //partie liste des invitations
+    let xha = new XMLHttpRequest();
+    xha.open("GET","/propo",true);
+    xha.onload = ()=>{
+        if(xha.readyState === XMLHttpRequest.DONE){            
+            if( xha.status === 200 ){
+                let data = xha.response;
+                list.innerHTML=data;
+            }
+        }
+    }
+    xha.send();
+
+},1000);
+

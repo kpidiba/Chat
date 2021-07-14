@@ -29,7 +29,7 @@
     
                 <section class="col-12" id="mca_side_bar">
                     <div class="chat_profile">
-                        @if (session('image') != 'user.png')
+                        @if( session('image') != 'user.png' )
                             <img src="IMAGE/{{ session('image') }}" alt="">
                             <span>Profile</span>                                
                         @else
