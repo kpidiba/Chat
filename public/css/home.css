@@ -291,12 +291,17 @@ users-list a .status-dot{
     align-items:flex-end;
 }
 
+#spacebtn{
+    padding:0px  30px;
+    margin-left: 90px;
+}
+
 .inbox .li_right .message .title{
-    background-color: #269BD0;
-    margin-right: 300px;
+    width: 190px;
+    margin-right: 100px;
     font-weight: bold;
     font-size:12px;
-    width:100px;
+    /* width:80px; */
     margin-bottom:5px; 
 }
 

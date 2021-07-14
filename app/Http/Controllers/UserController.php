@@ -352,11 +352,11 @@ class UserController extends Controller
                         <div class="li_left">
                         <img src="IMAGE/'.$value->image.'" alt="friend image">
                     </div>
-                    <div class="li_right">
+                    <div  class="li_right">
                         <div class="message">
-                            <div class="title">'.$msg.'</div>
+                            <div  class="title">'.$msg.'</div>
                             <div class="time_status">
-                                <button type="button" class="btn btn-success">Inviter</button>
+                                <button id="spacebtn" type="button" class="btn btn-success">Inviter</button>
                             </div>
                         </div>
                     </div>            
@@ -387,7 +387,7 @@ class UserController extends Controller
             <div class="li_left">
                 <img src="user.png" alt="friend image">
             </div>
-            <div class="li_right">
+            <div  class="li_right">
                 <div class="message">
                     <div class="title">Alex John</div>
                     <button type="button" class="btn btn-success">Accepter</button>
