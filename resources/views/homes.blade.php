@@ -52,34 +52,14 @@
             <div class="inbox">
                 <ul style="list-style: none;">
                     <li>
-                        <div class="all prop">
-                            <div class="li_left">
-                                <img src="user.png" alt="friend image">
-                            </div>
-                            <div class="li_right">
-                                <div class="message">
-                                    <div class="title">Alex John</div>
-                                    <div class="time_status">
-                                        <button type="button" class="btn btn-success">Inviter</button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="listp" class="all prop">
+                            
                         </div>
                     </li>
                     
                     <li>
-                        <div class="all unread">
-                            <div class="li_left">
-                                <img src="user.png" alt="friend image">
-                            </div>
-                            <div class="li_right">
-                                <div class="message">
-                                    <div class="title">Alex John</div>
-                                    <button type="button" class="btn btn-success">Accepter</button>
-                                    <button type="button" class="btn btn-secondary">Refuser</button>
-                                    <div class="time">10M</div>
-                                </div>
-                            </div>
+                        <div id="listv" class="all unread">
+                            
                         </div>
                     </li>
                 </ul>

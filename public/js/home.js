@@ -52,7 +52,8 @@ lib_tabs.forEach((tab)=>{
 
 
 // faire la liste
-list = document.querySelector("#friends");
+listp = document.querySelector("#listp");
+listv = document.querySelector("#listv");
 usersList = document.querySelector(".users-list");
 
 setInterval(()=>{
@@ -70,18 +71,31 @@ setInterval(()=>{
     }
     xhr.send();
 
-    //partie liste des invitations
+    //partie liste des proposition
     let xha = new XMLHttpRequest();
     xha.open("GET","/propo",true);
     xha.onload = ()=>{
         if(xha.readyState === XMLHttpRequest.DONE){            
             if( xha.status === 200 ){
                 let data = xha.response;
-                list.innerHTML=data;
+                listp.innerHTML=data;
             }
         }
     }
     xha.send();
+
+    //partie liste des invitations
+    let xhb = new XMLHttpRequest();
+    xhb.open("GET","/inv",true);
+    xhb.onload = ()=>{
+        if(xhb.readyState === XMLHttpRequest.DONE){            
+            if( xhb.status === 200 ){
+                let data = xhb.response;
+                listv.innerHTML=data;
+            }
+        }
+    }
+    xhb.send();
 
 },1000);
 

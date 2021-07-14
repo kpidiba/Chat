@@ -334,60 +334,57 @@ class UserController extends Controller
 
     public function listPropo(){
         //pour la liste des propositions
-        // $propo = DB::table('utilisateurs')
-        // ->where('utilisateurs.idUser', '!=', 'friends.idFriend')
-        // ->where('utilisateurs.idUser', '!=', 'friends.idUser')
-        // ->where('utilisateurs.idUser', '!=', 'invitations.idIrec')
-        // ->where('utilisateurs.idUser', '!=', 'invitations.idIsend')
-        // ->where('idUser','!=',session('id'))
-        // ->select('utilisateurs.nom', 'utilisateurs.prenom')
-        // ->get();
+        $propo = DB::table('utilisateurs')
+        ->where('utilisateurs.idUser', '!=', 'friends.idFriend')
+        ->where('utilisateurs.idUser', '!=', 'friends.idUser')
+        ->where('utilisateurs.idUser', '!=', 'invitations.idIrec')
+        ->where('utilisateurs.idUser', '!=', 'invitations.idIsend')
+        ->where('idUser','!=',session('id'))
+        ->select('utilisateurs.nom', 'utilisateurs.prenom')
+        ->get();
 
-        //pour la liste des invitations envoyees
-        // $invS =DB::table('utilisateurs')
-        // ->where('utilisateurs.idUser', '=', 'invitations.idIsend')
-        // ->where('utilisateurs.idUser','=',session('id'), '=', 'invitations.idIsend')
-        // ->select('utilisateurs.nom', 'utilisateurs.prenom')
-        // ->get();
+        
+        echo '<div class="li_left">
+        <img src="user.png" alt="friend image">
+    </div>
+    <div class="li_right">
+        <div class="message">
+            <div class="title">Alex John</div>
+            <div class="time_status">
+                <button type="button" class="btn btn-success">Inviter</button>
+            </div>
+        </div>
+    </div>';
+    }
+
+    public function listInv(){
+        // pour la liste des invitations envoyees
+        $invS =DB::table('utilisateurs')
+        ->where('utilisateurs.idUser', '=', 'invitations.idIsend')
+        ->where('utilisateurs.idUser','=',session('id'), '=', 'invitations.idIsend')
+        ->select('utilisateurs.nom', 'utilisateurs.prenom')
+        ->get();
         // dd($invS);
 
         //pour la liste des invitations recues
-        // $invR =DB::table('utilisateurs')
-        // ->where('utilisateurs.idUser', '=', 'invitations.idIrec')
-        // ->where('idUser','!=',session('id'))
-        // ->select('utilisateurs.nom', 'utilisateurs.prenom')
-        // ->get();
+        $invR =DB::table('utilisateurs')
+        ->where('utilisateurs.idUser', '=', 'invitations.idIrec')
+        ->where('idUser','!=',session('id'))
+        ->select('utilisateurs.nom', 'utilisateurs.prenom')
+        ->get();
         // dd($invR);
-        // echo '<li>
-        //             <div class="all prop">
-        //                 <div class="li_left">
-        //                     <img src="user.png" alt="friend image">
-        //                 </div>
-        //                 <div class="li_right">
-        //                     <div class="message">
-        //                         <div class="title">Alex John</div>
-        //                         <div class="time_status">
-        //                             <button type="button" class="btn btn-success">Inviter</button>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         </li>
 
-        //         <li>
-        //             <div class="all unread">
-        //                 <div class="li_left">
-        //                     <img src="user.png" alt="friend image">
-        //                 </div>
-        //                 <div class="li_right">
-        //                     <div class="message">
-        //                         <div class="title">Alex John</div>
-        //                         <button type="button" class="btn btn-success">Accepter</button>
-        //                         <button type="button" class="btn btn-secondary">Refuser</button>
-        //                         <div class="time">10M</div>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         </li>';
+        echo '<div class="li_left">
+        <img src="user.png" alt="friend image">
+    </div>
+    <div class="li_right">
+        <div class="message">
+            <div class="title">Alex John</div>
+            <button type="button" class="btn btn-success">Accepter</button>
+            <button type="button" class="btn btn-secondary">Refuser</button>
+            <div class="time">10M</div>
+        </div>
+    </div>';
     }
 }
+
