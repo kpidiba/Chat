@@ -16,9 +16,9 @@ document.querySelector("body").addEventListener("click",function(){
 
 //dynamisation du popup
 var lib_tabs = document.querySelectorAll(".tab_content ul li");
-var prop = document.querySelectorAll(".all.prop");
-var all = document.querySelectorAll(".all");
-var unread = document.querySelectorAll(".all.unread");
+var prop = document.querySelectorAll(".zll.prop");
+var all = document.querySelectorAll(".zll");
+var unread = document.querySelectorAll(".zll.unread");
 
 unread.forEach(item=>{
     item.style.display = "none";

@@ -52,15 +52,19 @@
             <div class="inbox">
                 <ul style="list-style: none;">
                     <li>
-                        <div id="listp" class="all prop">
+                        <div id="listp" class="zll prop">
                             
                         </div>
+                        
                     </li>
                     
                     <li>
-                        <div id="listv" class="all unread">
+                        <div class="zll unread">
+                            <div id="listv" class="all">
                             
+                            </div>
                         </div>
+                        
                     </li>
                 </ul>
             </div>

@@ -344,7 +344,9 @@ class UserController extends Controller
         ->get();
 
         
-        echo '<div class="li_left">
+        echo '
+        <div  class="all">
+        <div class="li_left">
         <img src="user.png" alt="friend image">
     </div>
     <div class="li_right">
@@ -354,7 +356,21 @@ class UserController extends Controller
                 <button type="button" class="btn btn-success">Inviter</button>
             </div>
         </div>
-    </div>';
+    </div>            
+        </div>
+        <div  class="all">
+        <div class="li_left">
+        <img src="user.png" alt="friend image">
+    </div>
+    <div class="li_right">
+        <div class="message">
+            <div class="title">Alex John</div>
+            <div class="time_status">
+                <button type="button" class="btn btn-success">Inviter</button>
+            </div>
+        </div>
+    </div>            
+        </div>';
     }
 
     public function listInv(){
