@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Friend;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\UserAuth;
@@ -51,9 +52,8 @@ Route::POST('/file',[UserController::class,'filechange'])->name('user.filechange
 
 //page de chat
 Route::GET('/chat',function(){
-    return "create just for his route";
+    return redirect()->route('user.home');
 })->name('chat');
-
 Route::GET('/chat/{id}',[UserController::class,'chat'])->name('user.chat')->middleware(UserAuth::class);
 Route::POST('/chat/{id}',[UserController::class,'message'])->name('user.msg')->middleware(UserAuth::class);
 
@@ -67,5 +67,11 @@ Route::POST('/getChat',[UserController::class,'gChat'])->name('user.gChat');
 Route::GET('/setting',[UserController::class,'setting'])->name('user.setting');
 
 //liste des invitations et liste des propositions
-Route::GET('/propo',[UserController::class,'listPropo'])->name('user.propo');
-Route::GET('/inv',[UserController::class,'listInv'])->name('user.inv');
+Route::GET('/propo',[Friend::class,'listPropo'])->name('friend.propo');
+Route::GET('/inv',[Friend::class,'listInv'])->name('friend.inv');
+
+//ajout d' un ami
+Route::GET('/addFriend/{id}',[Friend::class,'add'])->name('friend.add');
+Route::GET('/addFriend',function(){
+    return redirect()->route('user.home');
+})->name('add');
