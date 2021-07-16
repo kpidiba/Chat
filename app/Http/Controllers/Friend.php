@@ -12,22 +12,24 @@ class Friend extends Controller
     public function listPropo(){
         //pour la liste des propositions
         $propo = DB::table('utilisateurs')
-        // ->where('utilisateurs.idUser', '!=', 'friends.idFriend')
-        // ->where('utilisateurs.idUser', '!=', 'friends.idUser')
-        ->join('invitations','utilisateurs.idUser','!=', 'invitations.idIrec')
-        ->where('invitations.idIsend','=',3)
-        // ->where('idUser','!=',session('id'))
-        // ->select('utilisateurs.idUser','utilisateurs.nom', 'utilisateurs.prenom','utilisateurs.image')
+        ->join('invitations','utilisateurs.idUser','=', 'invitations.idIrec')
+        ->where('invitations.idIsend','!=',session('id'))
+        // ->orWhere(function($query)
+        //     {
+        //         $query->join('invitations','utilisateurs.idUser','=', 'invitations.idIsend')
+        //         ->where('invitations.idIrec','!=',session('id'));
+        //     })
         ->get();
         // dd($propo);
 
         foreach($propo as $value){
             $resultat=$value->nom.' '.$value->prenom;
             strlen($resultat) > 28 ? $msg = substr($resultat,0,22)."...":$msg = $resultat;
+            $value->image='user.png'?$img="user.png":$img="IMAGE/'.$value->image.'";
             echo '
                 <div  class="all">
                         <div class="li_left">
-                        <img src="IMAGE/'.$value->image.'" alt="friend image">
+                        <img src="'.$img.'" alt="friend image">
                     </div>
                     <div  class="li_right">
                         <div class="message">
@@ -43,22 +45,24 @@ class Friend extends Controller
     }
 
     public function listInv(){
+        
         // pour la liste des invitations envoyees
         $invS =DB::table('utilisateurs')
         ->join('invitations','utilisateurs.idUser','=', 'invitations.idIrec')
         ->where('invitations.idIsend','=',session('id'))
         ->get();
-        dd($invS);
+        // dd($invS);
 
         //pour la liste des invitations recues
         $invR =DB::table('utilisateurs')
-        ->where('utilisateurs.idUser', '=', 'invitations.idIrec')
-        ->where('idUser','!=',session('id'))
-        ->select('utilisateurs.nom', 'utilisateurs.prenom')
+        ->join('invitations','utilisateurs.idUser','=', 'invitations.idIsend')
+        ->where('invitations.idIrec','=',session('id'))
         ->get();
         // dd($invR);
 
-        echo '
+        foreach($invS as $data){
+            echo '
+        <p class="inv-title">invitations envoyees</p>
         <div  class="all">
             <div class="li_left">
                 <img src="user.png" alt="friend image">
@@ -66,12 +70,46 @@ class Friend extends Controller
             <div  class="li_right">
                 <div class="message">
                     <div class="title">Alex John</div>
+                    <a type="button" class="btn btn-primary">Annuler</a>
+                    <div class="time">10M</div>
+                </div>
+            </div>
+        </div>';
+        }
+
+        foreach($invR as $data){
+            echo'<p class="inv-title">invitations recues</p>
+        <div  class="all">
+            <div class="li_left">
+                <img src="user.png" alt="friend image">
+            </div>
+            <div  class="li_right">
+                <div class="message">
+                    <div class="title">'.$data->nom.' '.$data->prenom.'</div>
                     <a type="button" class="btn btn-success">Accepter</a>
                     <a type="button" class="btn btn-secondary">Refuser</a>
                     <div class="time">10M</div>
                 </div>
             </div>
-        </div>';
+        </div>
+        ';
+        }
+        
+        
+        // echo '
+        // <div  class="all">
+        //     <div class="li_left">
+        //         <img src="user.png" alt="friend image">
+        //     </div>
+        //     <div  class="li_right">
+        //         <div class="message">
+        //             <div class="title">Alex John</div>
+        //             <a type="button" class="btn btn-success">Accepter</a>
+        //             <a type="button" class="btn btn-secondary">Refuser</a>
+        //             <div class="time">10M</div>
+        //         </div>
+        //     </div>
+        // </div>';
     }
 
     public function add($id){
