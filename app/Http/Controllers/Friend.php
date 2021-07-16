@@ -12,13 +12,14 @@ class Friend extends Controller
     public function listPropo(){
         //pour la liste des propositions
         $propo = DB::table('utilisateurs')
-        ->where('utilisateurs.idUser', '!=', 'friends.idFriend')
-        ->where('utilisateurs.idUser', '!=', 'friends.idUser')
-        ->where('utilisateurs.idUser', '!=', 'invitations.idIrec')
-        ->where('utilisateurs.idUser', '!=', 'invitations.idIsend')
-        ->where('idUser','!=',session('id'))
-        ->select('utilisateurs.idUser','utilisateurs.nom', 'utilisateurs.prenom','utilisateurs.image')
+        // ->where('utilisateurs.idUser', '!=', 'friends.idFriend')
+        // ->where('utilisateurs.idUser', '!=', 'friends.idUser')
+        ->join('invitations','utilisateurs.idUser','!=', 'invitations.idIrec')
+        ->where('invitations.idIsend','=',3)
+        // ->where('idUser','!=',session('id'))
+        // ->select('utilisateurs.idUser','utilisateurs.nom', 'utilisateurs.prenom','utilisateurs.image')
         ->get();
+        // dd($propo);
 
         foreach($propo as $value){
             $resultat=$value->nom.' '.$value->prenom;
@@ -44,11 +45,10 @@ class Friend extends Controller
     public function listInv(){
         // pour la liste des invitations envoyees
         $invS =DB::table('utilisateurs')
-        ->where('utilisateurs.idUser', '=', 'invitations.idIsend')
-        ->where('utilisateurs.idUser','=',session('id'), '=', 'invitations.idIsend')
-        ->select('utilisateurs.nom', 'utilisateurs.prenom')
+        ->join('invitations','utilisateurs.idUser','=', 'invitations.idIrec')
+        ->where('invitations.idIsend','=',session('id'))
         ->get();
-        // dd($invS);
+        dd($invS);
 
         //pour la liste des invitations recues
         $invR =DB::table('utilisateurs')
