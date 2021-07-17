@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Friend;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\UserAuth;
@@ -76,3 +77,7 @@ Route::GET('/addFriend',function(){
     return redirect()->route('user.home');
 })->name('add');
 Route::POST('search',[Friend::class,'search'])->name('friend.search');
+
+//partie pour les jeux hardcore
+
+Route::GET('/Games',[GameController::class,'index'])->name('game.index');
