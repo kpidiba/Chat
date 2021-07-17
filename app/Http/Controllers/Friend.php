@@ -129,7 +129,9 @@ class Friend extends Controller
         ->where('nom','like',"%$search%")
         ->orwhere('prenom','like',"%$search%")       
         ->get();
-        if(count($sql)>0){
+        if( count($sql) == 0 ){
+            $output .="<p>Aucun utilisateur ne correspond a vos recherches</p>";
+        }else if(count($sql)>0){
             foreach($sql as $user){
                 
                 //pour recuperer le dernier message
@@ -183,8 +185,8 @@ class Friend extends Controller
                     <div class="status-dot " ><i class="fa fa-circle '.$offline.'"></i></div>
                 </a>';
             }
-        }else{
-            $output="Aucun utilisateur ne correspond a vos recherches";
+
         }
+        echo $output;
     }
 }
