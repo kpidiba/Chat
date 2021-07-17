@@ -67,6 +67,10 @@ body{
     padding:0;
 }
 
+.chat_menu ul li a i{
+    color:white;
+}
+
 .chat_menu ul li{
     cursor: pointer;
     position: relative;
