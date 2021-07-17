@@ -75,3 +75,4 @@ Route::GET('/addFriend/{id}',[Friend::class,'add'])->name('friend.add');
 Route::GET('/addFriend',function(){
     return redirect()->route('user.home');
 })->name('add');
+Route::POST('search',[Friend::class,'search'])->name('friend.search');

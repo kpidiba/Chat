@@ -121,4 +121,70 @@ class Friend extends Controller
         ]);
         dd("ok");
     }
+
+    public function search(){
+        $search = $_POST['search'];
+        $output="";
+        $sql = DB::table('utilisateurs')
+        ->where('nom','like',"%$search%")
+        ->orwhere('prenom','like',"%$search%")       
+        ->get();
+        if(count($sql)>0){
+            foreach($sql as $user){
+                
+                //pour recuperer le dernier message
+                $bobo = DB::table('messages')
+                ->orderBy('msg_id', 'desc')
+                ->where('receveir_id',$user->idUser)
+                ->orwhere('sender_id',$user->idUser)
+                ->Where(function($query)
+                {
+                    $query->where('receveir_id',session('id'))
+                    ->orwhere('sender_id',session('id'));
+                })
+                ->first();
+
+                if(empty($bobo->msg) && empty($bobo->sender_id)){
+                    $resultat ="Aucun message pour l'instant hhh";
+                }else{
+                    $resultat =$bobo->msg;
+                }
+                
+                // // pour limiter la taille du message
+                strlen($resultat) > 28 ? $msg = substr($resultat,0,28)."...":$msg = $resultat;
+                $ver = session('id');
+                
+                //pour a qui appartient le dernier message
+                if( !empty($bobo->sender_id) && $ver == $bobo->sender_id ){
+                    $you="TOI : ";
+                }else{
+                    $you="";
+                }
+
+                //verifier si l' utilisateur est connecte ou non
+                $offline ="";
+                if( $user->status == 0 ){
+                    $offline ="offline";
+                }
+                //veririfer si l'image est egale a l'image par defaut
+                if($user->image =="user.png"){
+                    $image = "user.png";
+                }else{
+                    $image = "IMAGE/$user->image";
+                }
+                $output .='<a href="'.route('chat').'/'.$user->idUser.'">
+                    <div class="content">
+                        <img src="'.$image.'" >
+                        <div class="details">
+                            <span>'.$user->nom.'  '.$user->prenom.'</span>
+                            <p>'.$you.''.$msg.'</p>
+                        </div>
+                    </div>
+                    <div class="status-dot " ><i class="fa fa-circle '.$offline.'"></i></div>
+                </a>';
+            }
+        }else{
+            $output="Aucun utilisateur ne correspond a vos recherches";
+        }
+    }
 }

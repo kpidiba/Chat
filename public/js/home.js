@@ -14,6 +14,31 @@ document.querySelector("body").addEventListener("click",function(){
     document.querySelector(".menu").style.display="none";
 })
 
+//partie pour la recherche
+const searchBar = document.querySelector(".bod .wrapper .search-input input");
+
+searchBar.onkeyup = () =>{
+    let searchTerm = searchBar.value;
+    if(searchTerm != ""){
+        searchBar.classList.add("active");
+    }else{
+        searchBar.classList.remove('active');
+    }
+    let xhr = new XMLHttpRequest();
+    xhr.open("POSt","/search",true);
+    xhr.onload = ()=>{
+        if(xhr.readyState === XMLHttpRequest.DONE){
+            
+            if(xhr.status === 200){
+                let data = xhr.response;
+                usersList.innerHTML=data;
+            }
+        }
+    }
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.send("search="+searchTerm);
+}
+
 //dynamisation du popup
 var lib_tabs = document.querySelectorAll(".tab_content ul li");
 var prop = document.querySelectorAll(".zll.prop");
@@ -65,7 +90,9 @@ setInterval(()=>{
             
             if(xhr.status === 200){
                 let data = xhr.response;
-                usersList.innerHTML=data;
+                if(!searchBar.classList.contains("active")){
+                    usersList.innerHTML=data;
+                }
             }
         }
     }
@@ -98,4 +125,3 @@ setInterval(()=>{
     xhb.send();
 
 },1000);
-

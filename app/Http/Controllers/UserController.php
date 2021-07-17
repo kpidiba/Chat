@@ -208,7 +208,6 @@ class UserController extends Controller
             foreach($users as $user){
                 
                 //pour recuperer le dernier message
-                
                 $bobo = DB::table('messages')
                 ->orderBy('msg_id', 'desc')
                 ->where('receveir_id',$user->idUser)
