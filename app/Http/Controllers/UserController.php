@@ -173,7 +173,7 @@ class UserController extends Controller
     }
 
     public function home(){
-        return view('homes');
+        return view('homes',['bar'=>1]);
     }
 
     public function chat($id){

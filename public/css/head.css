@@ -68,6 +68,7 @@ body{
 }
 
 .chat_menu ul li{
+    cursor: pointer;
     position: relative;
     list-style: none;
     font-size: 17px;

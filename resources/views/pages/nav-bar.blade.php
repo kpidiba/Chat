@@ -48,12 +48,22 @@
                     </div>
                     <div class="chat_menu">
                         <ul>
-                            <li class="active">
-                                <i class="fa fa-user"></i>
-                                <span class="icon-button__badge">2</span>
-                            </li>
-                            <li ><i class="fa fa-bell"></i></li>
-                            <li ><i class="fa fa-play"></i></li>
+                            {{-- For HOMES (: --}}
+                            @if ($bar == 1)
+                                <li class="active">
+                                    <a href="{{route('user.home')}}"><i class="fa fa-user"></i></a>
+                                    <span class="icon-button__badge">2</span>
+                                </li>
+                                <li ><a href="{{route('game.index')}}"><i class="fa fa-play"></a></i></li>
+                                <li ><i class="fa fa-bell"></i></li>
+                            @elseif ($bar == 2)
+                                <li ><i class="fa fa-user"></i></li>
+                                <li class="active">
+                                    <i class="fa fa-play"></i>
+                                    <span class="icon-button__badge">2</span>
+                                </li>
+                                <li ><i class="fa fa-bell"></i></li>
+                            @endif
                         </ul>
                     </div>
                 </section>
