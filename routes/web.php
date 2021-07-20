@@ -42,21 +42,21 @@ Route::GET('/',[UserController::class,'login'])->name('user.login');
 Route::POST('/',[UserController::class,'connect'])->name('user.connect');
 
 //page principale
-Route::GET('/home',[UserController::class,'home'])->name('user.home')->middleware(UserAuth::class);
+Route::GET('/home',[UserController::class,'home'])->name('user.home')->middleware('auths','revalidate');
 
 //Route de deconnection
-Route::GET('/diconnect',[UserController::class,'disconnect'])->name('user.disconnect');
+Route::GET('/disconnect',[UserController::class,'disconnect'])->name('user.disconnect');
 
 //page pour changer la photo de l' utilisateur
-Route::GET('/file',[UserController::class,'file'])->name('user.file')->middleware(UserAuth::class);
-Route::POST('/file',[UserController::class,'filechange'])->name('user.filechange')->middleware(UserAuth::class);
+Route::GET('/file',[UserController::class,'file'])->name('user.file')->middleware('auths','revalidate');
+Route::POST('/file',[UserController::class,'filechange'])->name('user.filechange')->middleware('auths','revalidate');
 
 //page de chat
 Route::GET('/chat',function(){
     return redirect()->route('user.home');
 })->name('chat');
-Route::GET('/chat/{id}',[UserController::class,'chat'])->name('user.chat')->middleware(UserAuth::class);
-Route::POST('/chat/{id}',[UserController::class,'message'])->name('user.msg')->middleware(UserAuth::class);
+Route::GET('/chat/{id}',[UserController::class,'chat'])->name('user.chat')->middleware('auths','revalidate');
+Route::POST('/chat/{id}',[UserController::class,'message'])->name('user.msg')->middleware('auths','revalidate');
 
 //Route pour verifier si les utilisateurs sont connecte
 Route::GET('/status',[UserController::class,'status'])->name('user.status');
@@ -65,19 +65,19 @@ Route::GET('/status',[UserController::class,'status'])->name('user.status');
 Route::POST('/getChat',[UserController::class,'gChat'])->name('user.gChat');
 
 //Les Parametres du compte
-Route::GET('/setting',[UserController::class,'setting'])->name('user.setting');
+Route::GET('/setting',[UserController::class,'setting'])->name('user.setting')->middleware('auths','revalidate');
 
 //liste des invitations et liste des propositions
-Route::GET('/propo',[Friend::class,'listPropo'])->name('friend.propo');
-Route::GET('/inv',[Friend::class,'listInv'])->name('friend.inv');
+Route::GET('/propo',[Friend::class,'listPropo'])->name('friend.propo')->middleware('auths','revalidate');
+Route::GET('/inv',[Friend::class,'listInv'])->name('friend.inv')->middleware('auths','revalidate');
 
 //ajout d' un ami
 Route::GET('/addFriend/{id}',[Friend::class,'add'])->name('friend.add');
 Route::GET('/addFriend',function(){
     return redirect()->route('user.home');
 })->name('add');
-Route::POST('search',[Friend::class,'search'])->name('friend.search');
+Route::POST('search',[Friend::class,'search'])->name('friend.search')->middleware('auths','revalidate');
 
 //partie pour les jeux hardcore
 
-Route::GET('/Games',[GameController::class,'index'])->name('game.index');
+Route::GET('/Games',[GameController::class,'index'])->name('game.index')->middleware('auths','revalidate');
