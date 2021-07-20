@@ -67,11 +67,11 @@ body{
     padding:0;
 }
 
-.chat_menu ul li a i{
+.chat_menu ul a li  i{
     color:white;
 }
 
-.chat_menu ul li{
+.chat_menu ul a li{
     cursor: pointer;
     position: relative;
     list-style: none;
@@ -83,7 +83,7 @@ body{
     height: 50px;
 }
 
-.chat_menu ul li.active{
+.chat_menu ul a li.active{
     background-color: rgba(0,0,0,0.13);
     color: #fff;
     display: flex;
@@ -95,9 +95,9 @@ body{
     border-radius: 50%;
 }
 
-.chat_menu ul li:hover{
+.chat_menu ul a li:hover{
     background-color: rgba(0,0,0,0.13);
-    color: #fff;
+    color: rgb(165, 162, 162);
     display: flex;
     align-items: center;
     justify-content: center;

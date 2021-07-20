@@ -50,19 +50,53 @@
                         <ul>
                             {{-- For HOMES (: --}}
                             @if ($bar == 1)
-                                <li class="active">
-                                    <a href="{{route('user.home')}}"><i class="fa fa-home"></i></a>
-                                    <span class="icon-button__badge">0</span>
-                                </li>
-                                <li ><a href="{{route('game.index')}}"><i class="fa fa-play"></i></a></li>
-                                <li ><i class="fa fa-bell"></i></li>
+                                <a href="{{route('user.home')}}">
+                                    <li class="active">
+                                        <i class="fa fa-home"></i>
+                                        <span class="icon-button__badge">0</span>
+                                    </li>
+                                </a>
+                                <a href="{{route('game.index')}}">
+                                    <li ><i class="fa fa-play"></i></li>
+                                </a>
+                                <a href="{{route('friend.index')}}">
+                                    <li ><i class="fa fa-user"></i></li>
+                                </a>
+                                <a href="">
+                                    <li ><i class="fa fa-bell"></i></li>
+                                </a>
                             @elseif ($bar == 2)
-                                <li ><a href="{{route('user.home')}}"><i class="fa fa-user"></i></a></li>
-                                <li class="active">
-                                    <a href="{{route('game.index')}}"><i class="fa fa-play"></i></a>
-                                    <span class="icon-button__badge">0</span>
-                                </li>
-                                <li ><i class="fa fa-bell"></i></li>
+                                <a href="{{route('user.home')}}">
+                                    <li ><i class="fa fa-user"></i></li>
+                                </a>
+                                <a href="{{route('game.index')}}">
+                                    <li class="active">
+                                        <i class="fa fa-play"></i>
+                                        <span class="icon-button__badge">0</span>
+                                    </li>
+                                </a>
+                                <a href="{{route('friend.index')}}">
+                                    <li ><i class="fa fa-user"></i></li>
+                                </a>
+                                <a href="">
+                                    <li ><i class="fa fa-bell"></i></li>
+                                </a>
+                            @elseif ($bar == 3)
+                                <a href="{{route('user.home')}}">
+                                    <li ><i class="fa fa-user"></i></li>
+                                </a>
+                                <a href="{{route('game.index')}}">
+                                    <li><i class="fa fa-play"></i></li>
+                                </a>
+                                <a href="{{route('friend.index')}}">
+                                    <li class="active">
+                                        <i class="fa fa-user"></i>
+                                        <span class="icon-button__badge">0</span>
+                                    </li>
+                                </a>
+                                <a href="">
+                                    <li ><i class="fa fa-bell"></i></li>
+                                </a>
                             @endif
                         </ul>
                     </div>

@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class Friend extends Controller
 {
+    public function index(){
+        return view('friends',['bar'=>3]);
+    }
+
     public function listPropo(){
         //pour la liste des propositions
         $propo = DB::table('utilisateurs')
