@@ -127,7 +127,9 @@ class Friend extends Controller
         $output="";
         $sql = DB::table('utilisateurs')
         ->where('nom','like',"%$search%")
-        ->orwhere('prenom','like',"%$search%")       
+        ->where('idUser','!=',session('id'))
+        ->orwhere('prenom','like',"%$search%")   
+        ->where('idUser','!=',session('id'))
         ->get();
         if( count($sql) == 0 ){
             $output .="<p>Aucun utilisateur ne correspond a vos recherches</p>";
