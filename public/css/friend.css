@@ -2,10 +2,17 @@
 .bod{
     margin-left:10%;
     margin-right: 4%;
+
+}
+
+.bod .content .tab_content{
+    display:flex;
+    justify-content: center;
 }
 
 .content{
     border-radius:3px;
+    
 }
 
 .content .tab_content{
@@ -13,11 +20,10 @@
 }
 
 .content .tab_content ul{
-    width:100%;
     display: flex;
+    align-content: center;
     background:#f4fafe;
     border-radius: 3px;
-    align-items: center;
 }
 
 .content .tab_content ul li{
@@ -46,7 +52,7 @@
 }
 
 .inbox li:last-child .all{
-    border-bottom:0;
+    /* border-bottom:0; */
 }
 
 .inbox li .all img{
@@ -54,58 +60,3 @@
     height:60px;
 }
 
-.inv-title{
-    color:black;
-    font-weight: bold;
-    font-size: 15px;
-    text-transform: uppercase;
-    text-align: center;
-    text-decoration: underline;    
-}
-
-
-.inbox .li_right .message{
-    margin:0 20px; 
-    display:flex;
-}
-
-/* .inbox .li_right .message div a{
-    padding-top:10px;
-    padding-bottom:10px;
-} */
-.inbox .li_right .message a{
-    padding-top:10px;
-    padding-bottom:10px;
-    margin-right: 10px;
-}
-
-.inbox .li_right .message .time_status{
-    display:flex;
-    align-items:flex-end;
-}
-
-#spacebtn{
-    padding-top:10px;
-    padding-bottom:10px;
-    margin-left: 90px;
-}
-
-.inbox .li_right .message .title{
-    width: 190px;
-    margin-right: 100px;
-    font-weight: bold;
-    font-size:12px;
-    /* width:80px; */
-    margin-bottom:5px; 
-}
-
-.inbox .li_right .message .sub_title{
-    font-size:12px;
-    line-height: 18px;
-}
-
-.inbox .all .time{
-    color:rgb(172, 159, 159);
-    font-size:12px;
-    margin-top: 15px;
-}

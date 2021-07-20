@@ -22,13 +22,14 @@
             <ul style="list-style: none;">
                 <li>
                     <div id="listp" class="zll prop">
-                        
+                        lap
                     </div>
                     
                 </li>
                 
                 <li>
                     <div id="listv" class="zll unread">
+                        loop
                         
                     </div>
                     
@@ -37,5 +38,5 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('js/home.js') }}" ></script>
+<script src="{{ asset('js/friend.js') }}" ></script>
 @endsection
