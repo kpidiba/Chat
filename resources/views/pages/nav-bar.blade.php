@@ -50,7 +50,7 @@
                         <ul>
                             {{-- For HOMES (: --}}
                             @if ($bar == 1)
-                                <a href="{{route('user.home')}}">
+                                <a href="{{route('user.home')}}" >
                                     <li class="active">
                                         <i class="fa fa-home"></i>
                                         <span class="icon-button__badge">0</span>
@@ -67,7 +67,7 @@
                                 </a>
                             @elseif ($bar == 2)
                                 <a href="{{route('user.home')}}">
-                                    <li ><i class="fa fa-user"></i></li>
+                                    <li ><i class="fa fa-home"></i></li>
                                 </a>
                                 <a href="{{route('game.index')}}">
                                     <li class="active">
@@ -83,7 +83,7 @@
                                 </a>
                             @elseif ($bar == 3)
                                 <a href="{{route('user.home')}}">
-                                    <li ><i class="fa fa-user"></i></li>
+                                    <li ><i class="fa fa-home"></i></li>
                                 </a>
                                 <a href="{{route('game.index')}}">
                                     <li><i class="fa fa-play"></i></li>

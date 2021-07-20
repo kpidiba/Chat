@@ -1,12 +1,11 @@
-/* *{
+*{
     margin:0;
     padding:0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-} */
+}
 
 body{
     background: #f3f6fd;
-    font-family: Roboto;
 }
 
 #mca_app{
@@ -65,6 +64,10 @@ body{
 .chat_menu ul{
     position:relative;
     padding:0;
+}
+
+.chat_menu ul a {
+    text-decoration: none;
 }
 
 .chat_menu ul a li  i{
