@@ -27,8 +27,9 @@
             <div class="file-name">File name here</div>
         </div>
         <br>
+        
         <form  method="POST" enctype="multipart/form-data">
-            <input type="file" name="image" id="default-btn" hidden>
+            <input type="file" name="image" id="default-btn" accept="image/*" hidden>
             <button onclick="defaultBtnActive()" id="custom-btn"  hidden>Choose a file</button>
             <button id="custom-btn" type="submit">changer</button>
         </form>

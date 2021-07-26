@@ -16,8 +16,8 @@ class Friend extends Controller
     public function listPropo(){
         //pour la liste des propositions
         $propo = DB::table('utilisateurs')
-        ->join('invitations','utilisateurs.idUser','=', 'invitations.idIrec')
-        ->where('invitations.idIsend','!=',session('id'))
+        // ->join('invitations','utilisateurs.idUser','=', 'invitations.idIrec')
+        // ->where('invitations.idIsend','!=',session('id'))
         // ->orWhere(function($query)
         //     {
         //         $query->join('invitations','utilisateurs.idUser','=', 'invitations.idIsend')
@@ -30,20 +30,31 @@ class Friend extends Controller
             $resultat=$value->nom.' '.$value->prenom;
             strlen($resultat) > 28 ? $msg = substr($resultat,0,22)."...":$msg = $resultat;
             $value->image='user.png'?$img="user.png":$img="IMAGE/'.$value->image.'";
+            // echo '
+            //     <div  class="all">
+            //             <div class="li_left">
+            //             <img src="'.$img.'" alt="friend image">
+            //         </div>
+            //         <div  class="li_right">
+            //             <div class="message">
+            //                 <div  class="title">'.$msg.'</div>
+            //                 <div class="time_status">
+            //                     <a id="spacebtn" href="'.route('add').'/'.$value->idUser.'" type="button" class="btn btn-success">Inviter</a>
+            //                 </div>
+            //             </div>
+            //         </div>            
+            //     </div>';
             echo '
-                <div  class="all">
-                        <div class="li_left">
+                    <article>
                         <img src="'.$img.'" alt="friend image">
-                    </div>
-                    <div  class="li_right">
-                        <div class="message">
-                            <div  class="title">'.$msg.'</div>
-                            <div class="time_status">
-                                <a id="spacebtn" href="'.route('add').'/'.$value->idUser.'" type="button" class="btn btn-success">Inviter</a>
-                            </div>
+                        <div class="text">
+                            <p>'.$msg.'</p>
+                            <button>Inviter</button>
                         </div>
-                    </div>            
-                </div>';
+                    </article>';
+
+                
+                
         }
         
     }
@@ -52,10 +63,9 @@ class Friend extends Controller
         
         // pour la liste des invitations envoyees
         $invS =DB::table('utilisateurs')
-        ->join('invitations','utilisateurs.idUser','=', 'invitations.idIrec')
-        ->where('invitations.idIsend','=',session('id'))
+        // ->join('invitations','utilisateurs.idUser','=', 'invitations.idIrec')
+        // ->where('invitations.idIsend','=',session('id'))
         ->get();
-        // dd($invS);
 
         //pour la liste des invitations recues
         $invR =DB::table('utilisateurs')
@@ -65,20 +75,15 @@ class Friend extends Controller
         // dd($invR);
 
         foreach($invS as $data){
-            echo '
-        <p class="inv-title">invitations envoyees</p>
-        <div  class="all">
-            <div class="li_left">
-                <img src="user.png" alt="friend image">
+
+        echo '
+        <article>
+            <img src="'.$data->image.'" alt="friend image">
+            <div class="text">
+                <p>'.$data->nom.' '.$data->prenom.'</p>
+                <button>Annuler</button>
             </div>
-            <div  class="li_right">
-                <div class="message">
-                    <div class="title">Alex John</div>
-                    <a type="button" class="btn btn-primary">Annuler</a>
-                    <div class="time">10M</div>
-                </div>
-            </div>
-        </div>';
+        </article>';
         }
 
         foreach($invR as $data){

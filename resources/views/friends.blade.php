@@ -22,15 +22,23 @@
             <ul style="list-style: none;">
                 <li>
                     <div id="listp" class="zll prop">
-                        lap
+                        <div class="container">
+                            <main class="grid">
+                                
+                                
+                            </main>
+                        </div>
                     </div>
                     
                 </li>
                 
                 <li>
                     <div id="listv" class="zll unread">
-                        loop
-                        
+                        <main class="grid">
+                            <p class="inv-title">invitations envoyees</p>
+                            
+                            
+                        </main>
                     </div>
                     
                 </li>
