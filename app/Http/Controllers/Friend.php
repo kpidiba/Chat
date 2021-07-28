@@ -52,17 +52,17 @@ class Friend extends Controller
                             <button>Inviter</button>
                         </div>
                     </article>';
-
                 
                 
         }
         
     }
+
     public function listInvR(){
         //pour la liste des invitations recues
         $invR =DB::table('utilisateurs')
-        // ->join('invitations','utilisateurs.idUser','=', 'invitations.idIsend')
-        // ->where('invitations.idIrec','=',session('id'))
+        ->join('invitations','utilisateurs.idUser','=', 'invitations.idIsend')
+        ->where('invitations.idIrec','=',session('id'))
         ->get();
         foreach($invR as $data){
             $data->image='user.png'?$img="user.png":$img="IMAGE/'.$data->image.'";
@@ -81,11 +81,10 @@ class Friend extends Controller
         
         // pour la liste des invitations envoyees
         $invS =DB::table('utilisateurs')
-        // ->join('invitations','utilisateurs.idUser','=', 'invitations.idIrec')
-        // ->where('invitations.idIsend','=',session('id'))
+        ->join('invitations','utilisateurs.idUser','=', 'invitations.idIrec')
+        ->where('invitations.idIsend','=',session('id'))
         ->get();
         
-        // echo '<p class="inv-title">invitations recues</p>';
         foreach($invS as $data){
             //recuperation de l' imgae
             $data->image='user.png'?$img="user.png":$img="IMAGE/'.$data->image.'";
@@ -99,22 +98,9 @@ class Friend extends Controller
             </article>';
         }
         
-        // echo '
-        // <div  class="all">
-        //     <div class="li_left">
-        //         <img src="user.png" alt="friend image">
-        //     </div>
-        //     <div  class="li_right">
-        //         <div class="message">
-        //             <div class="title">Alex John</div>
-        //             <a type="button" class="btn btn-success">Accepter</a>
-        //             <a type="button" class="btn btn-secondary">Refuser</a>
-        //             <div class="time">10M</div>
-        //         </div>
-        //     </div>
-        // </div>';
     }
 
+    //ajout des invitations
     public function add($id){
         DB::table('invitations')->insert([
             'idIrec' => $id,
@@ -122,9 +108,9 @@ class Friend extends Controller
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
         ]);
-        dd("ok");
     }
 
+    // pour la recherche d' amis sur la page principale
     public function search(){
         $search = $_POST['search'];
         $output="";
