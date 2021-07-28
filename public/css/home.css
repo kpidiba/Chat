@@ -6,7 +6,7 @@
 }
 
 body{
-    background:#f0f0f3;
+    background: linear-gradient(to left,#8943a8,#ba3);
 }
 
 .wrapper{
@@ -159,4 +159,74 @@ users-list a .status-dot{
 
 .users-list a .content p{
     color:#67676a;
+}
+
+/* background animation */
+
+
+.bod .box-area li{
+    z-index: 10;
+    position:absolute;
+    display:block;
+    list-style: none;
+    width:25px;
+    height: 25px;
+    background:rgba(255,255,2555,0.2);
+    animation: animate 20s linear infinite;
+    bottom:-10px;
+}
+
+.bod .box-area li:nth-child(1){
+    left:86%;
+    width:80px;
+    height:80px;
+    animation-delay: 0s;
+}
+
+.bod .box-area li:nth-child(2){
+    left:12%;
+    width:30px;
+    height:30px;
+    animation-delay: 1.5s;
+    animation-duration: 10s;
+}
+
+.bod .box-area li:nth-child(3){
+    left:70%;
+    width:100px;
+    height: 100px;
+    animation-delay: 5.5s;
+}
+
+.bod .box-area li:nth-child(4){
+    left:42%;
+    width:150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 15s;
+}
+
+.bod .box-area li:nth-child(5){
+    left:65%;
+    width:40px;
+    height:40px;
+    animation-delay: 0s;
+}
+
+.bod .box-area li:nth-child(6){
+    left:15%;
+    width:110px;
+    height: 110px;
+    animation-delay: 3.5s;
+}
+
+@keyframes animate{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100%{
+        transform:translateY(-800px) rotate(360deg);
+        opacity:0;
+    }
 }

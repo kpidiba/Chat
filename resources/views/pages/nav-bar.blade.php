@@ -40,10 +40,10 @@
                     </div>
                     <div class="menu">
                         <ul>
-                                <li class="user-id"><span> {{ session('email') }} </span></li>
-                                <li><i class="fa fa-user"></i><a href="{{ route('user.setting') }}"><span> Editer Profile</span></a></li>
+                                <li class="user-id"><span style="cursor:initial"> {{ session('email') }} </span></li>
+                                <li><i class="fa fa-user"></i><a style="text-decoration:none" href="{{ route('user.setting') }}"><span> Editer Profile</span></a></li>
                                 <input type="submit" hidden>
-                                <li class="line"><i class="fa fa-sign-out"></i><a href="{{ route('user.disconnect') }}"><span> Deconnecter</span></a></li>
+                                <li class="line"><i class="fa fa-sign-out"></i><a style="text-decoration:none;" href="{{ route('user.disconnect') }}"><span> Deconnecter</span></a></li>
                         </ul>
                     </div>
                     <div class="chat_menu">

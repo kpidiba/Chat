@@ -6,11 +6,12 @@
 }
 
 body{
+    background-image: url("../background.png");
     display:flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #5573ec;
+    /* background: #5573ec; */
 }
 
 .wrapper{
