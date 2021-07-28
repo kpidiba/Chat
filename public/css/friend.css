@@ -102,6 +102,14 @@ body{
 }
 
 
+h3{
+    border-bottom:2px solid black;
+    text-align: center;
+    margin-right: 380px;
+    text-transform: uppercase;
+    margin-left: 380px;
+}
+
 #listp .text button{
     background: rgb(94, 226, 149);
     border-radius: 20px;

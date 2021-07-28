@@ -80,5 +80,8 @@ Route::GET('/addFriend',function(){
 Route::POST('search',[Friend::class,'search'])->name('friend.search')->middleware('auths','revalidate');
 
 //partie pour les jeux hardcore
-
 Route::GET('/Games',[GameController::class,'index'])->name('game.index')->middleware('auths','revalidate');
+
+//games routes
+    /*  ====  snake man  =====*/
+Route::GET('/snake',[GameController::class,'index'])->name('snake.index')->middleware('auths','revalidate');
