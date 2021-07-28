@@ -111,17 +111,17 @@ setInterval(()=>{
     }
     xha.send();
 
-    //partie liste des invitations
-    let xhb = new XMLHttpRequest();
-    xhb.open("GET","/inv",true);
-    xhb.onload = ()=>{
-        if(xhb.readyState === XMLHttpRequest.DONE){            
-            if( xhb.status === 200 ){
-                let data = xhb.response;
-                listv.innerHTML=data;
-            }
-        }
-    }
-    xhb.send();
+    // //partie liste des invitations
+    // let xhb = new XMLHttpRequest();
+    // xhb.open("GET","/inv",true);
+    // xhb.onload = ()=>{
+    //     if(xhb.readyState === XMLHttpRequest.DONE){            
+    //         if( xhb.status === 200 ){
+    //             let data = xhb.response;
+    //             listv.innerHTML=data;
+    //         }
+    //     }
+    // }
+    // xhb.send();
 
 },1000);

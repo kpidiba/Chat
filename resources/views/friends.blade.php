@@ -23,7 +23,9 @@
                 <li>
                     <div id="listp" class="zll prop">
                         <div class="container">
+                            
                             <main class="grid">
+                                
                                 
                                 
                             </main>
@@ -34,11 +36,22 @@
                 
                 <li>
                     <div id="listv" class="zll unread">
-                        <main class="grid">
-                            <p class="inv-title">invitations envoyees</p>
-                            
-                            
-                        </main>
+                        <div class="container" >
+                            <h3>Invitations envoyees</h3>
+                            <main class="grid" id="un">
+                        
+                        
+                        
+                            </main>
+                        </div>
+                        <div class="container" >
+                            <h3>Invitations recuees</h3>
+                            <main class="grid" id="deux">
+                        
+                        
+                        
+                            </main>
+                        </div>
                     </div>
                     
                 </li>

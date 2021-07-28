@@ -58,52 +58,46 @@ class Friend extends Controller
         }
         
     }
+    public function listInvR(){
+        //pour la liste des invitations recues
+        $invR =DB::table('utilisateurs')
+        // ->join('invitations','utilisateurs.idUser','=', 'invitations.idIsend')
+        // ->where('invitations.idIrec','=',session('id'))
+        ->get();
+        foreach($invR as $data){
+            $data->image='user.png'?$img="user.png":$img="IMAGE/'.$data->image.'";
+            echo '
+            <article>
+                <img src="'.$img.'" alt="friend image">
+                <div class="text">
+                    <p>'.$data->nom.' '.$data->prenom.'</p>
+                    <button style="background:blue;">Accepter</button>
+                </div>
+            </article>';
+        }
+    }
 
-    public function listInv(){
+    public function listInvE(){
         
         // pour la liste des invitations envoyees
         $invS =DB::table('utilisateurs')
         // ->join('invitations','utilisateurs.idUser','=', 'invitations.idIrec')
         // ->where('invitations.idIsend','=',session('id'))
         ->get();
-
-        //pour la liste des invitations recues
-        $invR =DB::table('utilisateurs')
-        ->join('invitations','utilisateurs.idUser','=', 'invitations.idIsend')
-        ->where('invitations.idIrec','=',session('id'))
-        ->get();
-        // dd($invR);
-
-        foreach($invS as $data){
-
-        echo '
-        <article>
-            <img src="'.$data->image.'" alt="friend image">
-            <div class="text">
-                <p>'.$data->nom.' '.$data->prenom.'</p>
-                <button>Annuler</button>
-            </div>
-        </article>';
-        }
-
-        foreach($invR as $data){
-            echo'<p class="inv-title">invitations recues</p>
-        <div  class="all">
-            <div class="li_left">
-                <img src="user.png" alt="friend image">
-            </div>
-            <div  class="li_right">
-                <div class="message">
-                    <div class="title">'.$data->nom.' '.$data->prenom.'</div>
-                    <a type="button" class="btn btn-success">Accepter</a>
-                    <a type="button" class="btn btn-secondary">Refuser</a>
-                    <div class="time">10M</div>
-                </div>
-            </div>
-        </div>
-        ';
-        }
         
+        // echo '<p class="inv-title">invitations recues</p>';
+        foreach($invS as $data){
+            //recuperation de l' imgae
+            $data->image='user.png'?$img="user.png":$img="IMAGE/'.$data->image.'";
+            echo '
+            <article>
+                <img src="'.$img.'" alt="friend image">
+                <div class="text">
+                    <p>'.$data->nom.' '.$data->prenom.'</p>
+                    <button>Annuler</button>
+                </div>
+            </article>';
+        }
         
         // echo '
         // <div  class="all">

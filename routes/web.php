@@ -69,10 +69,10 @@ Route::GET('/setting',[UserController::class,'setting'])->name('user.setting')->
 
 //liste des invitations et liste des propositions
 Route::GET('/propo',[Friend::class,'listPropo'])->name('friend.propo')->middleware('auths','revalidate');
-Route::GET('/inv',[Friend::class,'listInv'])->name('friend.inv')->middleware('auths','revalidate');
-
+Route::GET('/inve',[Friend::class,'listInvE'])->name('friend.invE')->middleware('auths','revalidate');
+Route::GET('/invr',[Friend::class,'listInvR'])->name('friend.invR')->middleware('auths','revalidate');
 //Route pour ajout ou invitations d 'amis
-Route::GET('/Friend',[Friend::class,'index'])->name('friend.index');
+Route::GET('/Friend',[Friend::class,'index'])->name('friend.index')->middleware('auths','revalidate');;
 Route::GET('/addFriend/{id}',[Friend::class,'add'])->name('friend.add');
 Route::GET('/addFriend',function(){
     return redirect()->route('user.home');

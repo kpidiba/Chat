@@ -94,7 +94,6 @@ body{
 .text{
     padding:0 20px 20px;
     background: white;
-    /* font-size: 12px; */
 }
 
 .text p{
@@ -115,6 +114,17 @@ body{
     cursor:pointer;
 }
 
+#listv .text button{
+    background: rgb(214, 76, 76);
+    border-radius: 20px;
+    color:white;
+    padding:10px;
+    border: none;
+    width:100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor:pointer;
+}
 
 
 

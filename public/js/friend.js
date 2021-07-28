@@ -39,7 +39,10 @@ lib_tabs.forEach((tab)=>{
 })
 
 // liste les propositions et invitations (envoye ou recu)
-listp = document.querySelector(".grid");
+listp = document.querySelector("#listp .grid");
+listve = document.querySelector("#un");
+listvr = document.querySelector("#deux");
+
 
     //partie liste des proposition
     let xha = new XMLHttpRequest();
@@ -54,17 +57,29 @@ listp = document.querySelector(".grid");
     }
     xha.send();
 
-    //partie liste des invitations
+    //partie liste des invitations envoyees
     let xhb = new XMLHttpRequest();
-    xhb.open("GET","/inv",true);
+    xhb.open("GET","/inve",true);
     xhb.onload = ()=>{
         if(xhb.readyState === XMLHttpRequest.DONE){            
             if( xhb.status === 200 ){
                 let data = xhb.response;
-                listv.innerHTML=data;
+                listve.innerHTML=data;
             }
         }
     }
     xhb.send();
 
+    //partie des invitations recues
+    let xhc = new XMLHttpRequest();
+    xhc.open("GET","/invr",true);
+    xhc.onload = ()=>{
+        if(xhc.readyState === XMLHttpRequest.DONE){            
+            if( xhc.status === 200 ){
+                let data = xhc.response;
+                listvr.innerHTML=data;
+            }
+        }
+    }
+    xhc.send();
 
