@@ -6,12 +6,11 @@
 }
 
 body{
-    background-image: url("../background.png");
+    background: #5573ec;
     display:flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    /* background: #5573ec; */
 }
 
 .wrapper{
@@ -35,7 +34,6 @@ form .field {
     width:100%;
     margin-bottom:20px;
 }
-
 
 form .field .input-area{
     position: relative;

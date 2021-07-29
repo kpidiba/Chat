@@ -84,4 +84,5 @@ Route::GET('/Games',[GameController::class,'index'])->name('game.index')->middle
 
 //games routes
     /*  ====  snake man  =====*/
-Route::GET('/snake',[GameController::class,'index'])->name('snake.index')->middleware('auths','revalidate');
+Route::GET('/snake',[GameController::class,'snake'])->name('snake.index')->middleware('auths','revalidate');
+Route::GET('/hero',[GameController::class,'hero'])->name('hero.index')->middleware('auths','revalidate');
