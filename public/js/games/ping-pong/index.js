@@ -47,8 +47,6 @@ function  drawRect(x,y,w,h,color){
     context.fillRect(x,y,w,h);
 }
 
-// drawRect(0,0,canvas.width,canvas.height,"black");
-
 // partie pour le controle de raquette
 canvas.addEventListener("mousemove",mousePaddle);
 
@@ -57,9 +55,9 @@ function mousePaddle(evt){
 
     user.y = evt.clientY -rect.top -user.height/2;
     if(user.y<0){
-        user.y=0
-    }else if(user.y>canvas.height){
-        user.y = canvas.height;
+        user.y=0;
+    }else if(user.y>canvas.height-100){
+        user.y = canvas.height-100;
     }
 }
 
@@ -76,6 +74,14 @@ function collision(ball,player){
     player.right = player.x + player.width;
 
     return ball.right > player.left && ball.bottom > player.top && ball.top < player.bottom && ball.left < player.right; 
+}
+
+// Mettre la balle a la position de depart
+function resetBall(){
+    ball.x=canvas.width/2,
+    ball.y=canvas.height/2,
+    ball.speed= 5;
+    ball.velocityY=0;
 }
 
 // dessin du filet
@@ -101,6 +107,9 @@ function update(){
     com.y += (ball.y-(com.y+com.height/2)) * computerLevel;
     if(com.y<0){
         com.y=0
+    }else if (com.y>canvas.height-100){
+        com.y = canvas.height-100;
+
     }
 
     ball.x += ball.velocityX;
@@ -124,7 +133,15 @@ function update(){
         
         ball.velocityX = direction*(ball.speed * Math.cos(angleRad));
         ball.velocityY = ball.speed * Math.sin(angleRad);
-        ball.speed +=0.1;
+        ball.speed +=0.5;
+    }
+
+    if(ball.x - ball.radius < 0 ){
+        com.score++;
+        resetBall();
+    }else if( ball.x + ball.radius > canvas.width ){
+        user.score++;
+        resetBall();
     }
 
 }
@@ -144,9 +161,9 @@ function render(){
 
     // affichage du score
     drawText(user.score,canvas.width/4,canvas.height/5,"White");
-    drawText(user.score,3*canvas.width/4,canvas.height/5,"White");
+    drawText(com.score,3*canvas.width/4,canvas.height/5,"White");
 
-        // dessin des utilisateur
+    // dessin des utilisateur
     drawRect(user.x,user.y,user.width,user.height,user.color);
     drawRect(com.x,com.y,com.width,com.height,com.color);
 
