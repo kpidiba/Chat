@@ -1,4 +1,14 @@
 
-canvas{
-    border:1px solid black;
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 100vh;
 }
+canvas{
+    /* background: black; */
+    border:1px solid black;
+    
+}
+
