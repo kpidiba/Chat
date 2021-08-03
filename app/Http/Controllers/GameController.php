@@ -16,4 +16,8 @@ class GameController extends Controller
     public function hero(){
         return view('games/hero/index');
     }
+
+    public function pingpong(){
+        return view('games/ping-pong/index');
+    }
 }
