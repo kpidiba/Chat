@@ -102,14 +102,15 @@ function drawCircle(x,y,rad,color){
 // fonction de mis a jour du score et autre
 function update(){
 
-    // IA to controll to controll paddle com
+    // IA pour controler le panel de l' adverse
     let computerLevel = 0.1;
     com.y += (ball.y-(com.y+com.height/2)) * computerLevel;
+    
+    // Eviter que les panels ne depassent les bords
     if(com.y<0){
         com.y=0
     }else if (com.y>canvas.height-100){
         com.y = canvas.height-100;
-
     }
 
     ball.x += ball.velocityX;
