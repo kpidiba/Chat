@@ -97,6 +97,7 @@
                                 <a href="">
                                     <li ><i class="fa fa-bell"></i></li>
                                 </a>
+
                             @endif
                         </ul>
                     </div>

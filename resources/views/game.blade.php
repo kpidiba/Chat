@@ -9,5 +9,6 @@
 @endsection
 
 @section('content')
-    
+    <div class="bod">
+    </div>
 @endsection
