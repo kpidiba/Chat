@@ -38,7 +38,7 @@
                     <a href="{{ route('user.file') }}" class="btn btn-default" style="text-decoration: none;font-size:15px;color:blue;border:none">VISUALISER IMAGE ET/OU CHANGER</a>
                 </td>
             </tr>
-            <tr>
+            {{-- <tr>
                 <td style="font-weight: bold;" >BACKGROUND CHAT IMAGE</td>
                 <td>
                     <a href="{{ route('user.file') }}" class="btn btn-default" style="text-decoration: none;font-size:15px;color:blue;border:none">CHANGER IMAGE</a>
@@ -49,7 +49,7 @@
                 <td>
                     <a href="" class="btn btn-default" style="text-decoration: none;font-size:15px;color:blue;border:none">MIS A JOUR DU MOT DE PASSE</a>
                 </td>
-            </tr>
+            </tr> --}}
             <tr align="center">
                 <td colspan="6" class="active">
                     <a href="{{ route('user.home') }}" class="btn btn-primary  btn-lg" style="padding-left: 40px;padding-right:40px" >Valider</a></td>

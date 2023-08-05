@@ -53,10 +53,10 @@
                                 <a href="{{route('user.home')}}" >
                                     <li class="active">
                                         <i class="fa fa-home"></i>
-                                        <span class="icon-button__badge">0</span>
+                                        {{-- <span class="icon-button__badge">0</span> --}}
                                     </li>
                                 </a>
-                                <a href="{{route('game.index')}}">
+                                {{-- <a href="{{route('game.index')}}">
                                     <li ><i class="fa fa-play"></i></li>
                                 </a>
                                 <a href="{{route('friend.index')}}">
@@ -64,12 +64,12 @@
                                 </a>
                                 <a href="">
                                     <li ><i class="fa fa-bell"></i></li>
-                                </a>
+                                </a> --}}
                             @elseif ($bar == 2)
                                 <a href="{{route('user.home')}}">
                                     <li ><i class="fa fa-home"></i></li>
                                 </a>
-                                <a href="{{route('game.index')}}">
+                                {{-- <a href="{{route('game.index')}}">
                                     <li class="active">
                                         <i class="fa fa-play"></i>
                                         <span class="icon-button__badge">0</span>
@@ -80,12 +80,12 @@
                                 </a>
                                 <a href="">
                                     <li ><i class="fa fa-bell"></i></li>
-                                </a>
+                                </a> --}}
                             @elseif ($bar == 3)
                                 <a href="{{route('user.home')}}">
                                     <li ><i class="fa fa-home"></i></li>
                                 </a>
-                                <a href="{{route('game.index')}}">
+                                {{-- <a href="{{route('game.index')}}">
                                     <li><i class="fa fa-play"></i></li>
                                 </a>
                                 <a href="{{route('friend.index')}}">
@@ -96,8 +96,7 @@
                                 </a>
                                 <a href="">
                                     <li ><i class="fa fa-bell"></i></li>
-                                </a>
-
+                                </a> --}}
                             @endif
                         </ul>
                     </div>
